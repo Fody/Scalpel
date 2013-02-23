@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Scalpel.Fody</id>
+    <version>$version$</version>
+    <title>Scalpel.Fody</title>
+    <authors>Simon Cropp</authors>
+    <owners>Simon Cropp</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://github.com/Fody/Scalpel</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Remove test references from an assembly.</description>
+    <summary />
+    <language>en-AU</language>
+    <tags>Scalpel, NUnit, Moq, ILWeaving, Fody, Cecil</tags>
+  </metadata>
+</package>
