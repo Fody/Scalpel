@@ -5,7 +5,7 @@ class NUnitRemover : IRemover
 {
     public string ReferenceName
     {
-        get { return "nunit"; }
+        get { return "nunit.framework"; }
     }
 
     public bool ShouldRmoveType(TypeDefinition typeDefinition)

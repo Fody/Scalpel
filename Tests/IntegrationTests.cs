@@ -62,6 +62,11 @@ public class IntegrationTests
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "xunit"));
     }
     [Test]
+    public void NUnitIsRemoved()
+    {
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "nunit.framework"));
+    }
+    [Test]
     public void ClassEndingInMockIsRemoved()
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "ClassEndingInMock"));
