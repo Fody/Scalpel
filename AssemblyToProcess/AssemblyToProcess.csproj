@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlsoRemoveMe.cs" />
+    <Compile Include="ClassEndingInMock.cs" />
+    <Compile Include="ClassEndingInTests.cs" />
     <Compile Include="ForceReferences.cs" />
     <Compile Include="NUnitTestFixture.cs" />
     <Compile Include="XUnitTestFixture.cs" />

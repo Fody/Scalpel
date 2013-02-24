@@ -3,9 +3,9 @@ using System;
 namespace Scalpel
 {
     /// <summary>
-    /// Also remove this class.
+    /// Also remove this type.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class , AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Struct | AttributeTargets.Enum, AllowMultiple = false, Inherited = false)]
     public class RemoveAttribute : Attribute
     {
     }

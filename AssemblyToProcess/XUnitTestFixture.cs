@@ -9,11 +9,3 @@ public class XUnitTestFixture
     
     }
 }
-public class ClassEndingInTests
-{
-    
-}
-public class ClassEndingInMock
-{
-    
-}
