@@ -6,15 +6,15 @@ public class ConfigReaderTests
 {
 
     [Test]
-    public void IncludeAssembliesNode()
+    public void RemoveReferencesNode()
     {
         var xElement = XElement.Parse(@"
-<Costura>
+<Scalpel>
     <RemoveReferences>
 Foo
 Bar
     </RemoveReferences>
-</Costura>");
+</Scalpel>");
         var moduleWeaver = new ModuleWeaver { Config = xElement };
         moduleWeaver.ReadConfig();
         Assert.AreEqual("Foo", moduleWeaver.RemoveReferences[0]);
@@ -22,10 +22,10 @@ Bar
     }
 
     [Test]
-    public void IncludeAssembliesAttribute()
+    public void RemoveReferencesAttribute()
     {
         var xElement = XElement.Parse(@"
-<Costura RemoveReferences='Foo|Bar'/>");
+<Scalpel RemoveReferences='Foo|Bar'/>");
         var moduleWeaver = new ModuleWeaver { Config = xElement };
         moduleWeaver.ReadConfig();
         Assert.AreEqual("Foo", moduleWeaver.RemoveReferences[0]);
@@ -33,14 +33,14 @@ Bar
     }
 
     [Test]
-    public void IncludeAssembliesCombined()
+    public void RemoveReferencesCombined()
     {
         var xElement = XElement.Parse(@"
-<Costura  RemoveReferences='Foo'>
+<Scalpel RemoveReferences='Foo'>
     <RemoveReferences>
 Bar
     </RemoveReferences>
-</Costura>");
+</Scalpel>");
         var moduleWeaver = new ModuleWeaver { Config = xElement };
         moduleWeaver.ReadConfig();
         Assert.AreEqual("Foo", moduleWeaver.RemoveReferences[0]);
