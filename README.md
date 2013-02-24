@@ -16,7 +16,7 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
  * Removes all types ending in `Mock`
  * Removes all types marked with `NUnit.TestFixture`
  * Removes all types containing a method marked with `Xunit.Fact`
- * Removes all references to NUnit, Xunit, RhunoMocks, NSubstitute and Moq.
+ * Removes all references to NUnit, Xunit, RhinoMocks, NSubstitute and Moq.
  * Removes all types marked with `Scalpel.RemoveAttribute`.
  * Removes all references as defined in  `<Scalpel RemoveReferences='XXX'/>` see below.
 
