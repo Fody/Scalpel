@@ -24,9 +24,9 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 
 When coding tests should be a first class citizen to the functionality you are creating. As such it makes sense for them to be co-located with the code being tested. Unfortunately due to the nature of .net this is very difficult to achieve. The reason is that if you place tests next to the code being tested you and up having those tests include in your deployable assembly. You also have the problem of your assembly referencing unit test helper libraries like NUnit and Moq.
 
-## But how do I test my deployable artifacts
+## But how do I test my deployable artefacts
 
-One problem with this approach is testing your deployable atrifacts if the tests are removed from them.
+One problem with this approach is testing your deployable artefacts if the tests are removed from them.
 
 This is a legitimate problem. The recommended approached it to create another build configuration call `Deployable`. It can have all the same settings as your `Release` configuration with the addition of the `Scalpel` compilation constant.
 This way tests can run from your `Release` configuration and you can deploy from your `Deployable` configuration.
