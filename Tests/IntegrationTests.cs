@@ -49,6 +49,11 @@ public class IntegrationTests
     {
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "NSubstitute"));
     }
+    [Test]
+    public void ScalepelIsRemoved()
+    {
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "Scalpel"));
+    }
 
     [Test]
     public void RhinoMocksIsRemoved()
@@ -81,6 +86,12 @@ public class IntegrationTests
     public void NUnitTestFixtureIsRemoved()
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "NUnitTestFixture"));
+    }
+
+    [Test]
+    public void MarkedWithAttributeIsRemoved()
+    {
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "AlsoRemoveMe"));
     }
     [Test]
     public void XUnitTestFixtureIsRemoved()

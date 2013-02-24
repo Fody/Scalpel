@@ -64,9 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CecilExtensions.cs" />
+    <Compile Include="ConfigReader.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="IRemover.cs" />
     <Compile Include="ModuleWeaver.cs" />
     <Compile Include="..\CommonAssemblyInfo.cs" />
+    <Compile Include="Removers\WithScalpelAttributeRemover.cs" />
     <Compile Include="Removers\EndsWithMockRemover.cs" />
     <Compile Include="Removers\EndsWithTestsRemover.cs" />
     <Compile Include="Removers\MoqRemover.cs" />

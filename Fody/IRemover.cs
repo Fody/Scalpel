@@ -3,5 +3,5 @@
 interface IRemover
 {
     string ReferenceName { get; }
-    bool ShouldRmoveType(TypeDefinition typeDefinition);
+    bool ShouldRemoveType(TypeDefinition typeDefinition);
 }

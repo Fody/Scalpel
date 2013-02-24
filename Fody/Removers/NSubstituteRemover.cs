@@ -7,7 +7,7 @@ class NSubstituteRemover : IRemover
         get { return "NSubstitute"; }
     }
 
-    public bool ShouldRmoveType(TypeDefinition typeDefinition)
+    public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return false;
     }

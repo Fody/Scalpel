@@ -7,7 +7,7 @@ class RhinoMocksRemover : IRemover
         get { return "Rhino.Mocks"; }
     }
 
-    public bool ShouldRmoveType(TypeDefinition typeDefinition)
+    public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return false;
     }

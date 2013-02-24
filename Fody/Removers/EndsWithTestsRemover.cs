@@ -8,7 +8,7 @@ class EndsWithTestsRemover : IRemover
         get { return null; }
     }
 
-    public bool ShouldRmoveType(TypeDefinition typeDefinition)
+    public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return typeDefinition.Name.EndsWith("Tests",StringComparison.Ordinal);
     }

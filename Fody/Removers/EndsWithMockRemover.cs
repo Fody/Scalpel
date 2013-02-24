@@ -8,7 +8,7 @@ class EndsWithMockRemover : IRemover
         get { return null; }
     }
 
-    public bool ShouldRmoveType(TypeDefinition typeDefinition)
+    public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return typeDefinition.Name.EndsWith("Mock", StringComparison.Ordinal);
     }

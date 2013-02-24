@@ -8,7 +8,7 @@ class NUnitRemover : IRemover
         get { return "nunit.framework"; }
     }
 
-    public bool ShouldRmoveType(TypeDefinition typeDefinition)
+    public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return typeDefinition.CustomAttributes.Any(IsTestFixtureAttribute);
     }

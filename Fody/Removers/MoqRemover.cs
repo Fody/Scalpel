@@ -7,7 +7,7 @@ class MoqRemover : IRemover
         get { return "moq"; }
     }
 
-    public bool ShouldRmoveType(TypeDefinition typeDefinition)
+    public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return false;
     }

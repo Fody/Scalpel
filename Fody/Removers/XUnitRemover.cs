@@ -8,7 +8,7 @@ class XUnitRemover : IRemover
         get { return "xunit"; }
     }
 
-    public bool ShouldRmoveType(TypeDefinition typeDefinition)
+    public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return typeDefinition.Methods.Any(HasFactAttribute);
     }

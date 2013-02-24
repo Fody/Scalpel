@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Mono.Cecil;
 
-public class ModuleWeaver
+public partial class ModuleWeaver
 {
     static List<IRemover> removers;
     public Action<string> LogInfo { get; set; }
@@ -32,18 +32,21 @@ public class ModuleWeaver
         {
             return;
         }
+        ReadConfig();
+
         var typeDefinitions = ModuleDefinition.Types.ToList();
         foreach (var type in typeDefinitions)
         {
-            if (removers.Any(x => x.ShouldRmoveType(type)))
+            if (removers.Any(x => x.ShouldRemoveType(type)))
             {
                 ModuleDefinition.Types.Remove(type);
             }
         }
         var assemblyNameReferences = ModuleDefinition.AssemblyReferences.ToList();
+        RemoveReferences.AddRange(removers.Select(x=>x.ReferenceName));
         foreach (var reference in assemblyNameReferences)
         {
-            if (removers.Any(x => x.ReferenceName == reference.Name))
+            if (RemoveReferences.Any(x => x == reference.Name))
             {
                 ModuleDefinition.AssemblyReferences.Remove(reference);
             }
