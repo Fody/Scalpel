@@ -2,9 +2,9 @@
 
 class RhinoMocksRemover : IRemover
 {
-    public string ReferenceName
+    public string[] ReferenceNames
     {
-        get { return "Rhino.Mocks"; }
+        get { return new[]{ "Rhino.Mocks"}; }
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

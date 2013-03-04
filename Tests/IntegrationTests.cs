@@ -45,6 +45,19 @@ public class IntegrationTests
     }
 
     [Test]
+    public void FakeItEasyIsRemoved()
+    {
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "FakeItEasy"));
+    }
+
+    [Test]
+    public void MSpecIsRemoved()
+    {
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "Machine.Specifications"));
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "Machine.Specifications.Clr4"));
+    }
+
+    [Test]
     public void NSubstituteIsRemoved()
     {
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "NSubstitute"));
@@ -97,6 +110,11 @@ public class IntegrationTests
     public void XUnitTestFixtureIsRemoved()
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitTestFixture"));
+    }
+    [Test]
+    public void MSpecTestFixtureIsRemoved()
+    {
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "MSpecTestFixture"));
     }
 
     

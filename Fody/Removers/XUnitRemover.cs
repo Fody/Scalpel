@@ -3,9 +3,9 @@ using Mono.Cecil;
 
 class XUnitRemover : IRemover
 {
-    public string ReferenceName
+    public string[] ReferenceNames
     {
-        get { return "xunit"; }
+        get { return new[]{ "xunit"}; }
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

@@ -2,6 +2,6 @@
 
 interface IRemover
 {
-    string ReferenceName { get; }
+    string[] ReferenceNames { get; }
     bool ShouldRemoveType(TypeDefinition typeDefinition);
 }

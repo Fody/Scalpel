@@ -2,9 +2,9 @@
 
 class NSubstituteRemover : IRemover
 {
-    public string ReferenceName
+    public string[] ReferenceNames
     {
-        get { return "NSubstitute"; }
+        get { return new[] {"NSubstitute"}; }
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

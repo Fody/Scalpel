@@ -69,6 +69,8 @@
     <Compile Include="IRemover.cs" />
     <Compile Include="ModuleWeaver.cs" />
     <Compile Include="..\CommonAssemblyInfo.cs" />
+    <Compile Include="Removers\MSpecRemover.cs" />
+    <Compile Include="Removers\FakeItEasyRemover.cs" />
     <Compile Include="Removers\WithScalpelAttributeRemover.cs" />
     <Compile Include="Removers\EndsWithMockRemover.cs" />
     <Compile Include="Removers\EndsWithTestsRemover.cs" />

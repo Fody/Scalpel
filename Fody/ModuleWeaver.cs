@@ -43,7 +43,7 @@ public partial class ModuleWeaver
             }
         }
         var assemblyNameReferences = ModuleDefinition.AssemblyReferences.ToList();
-        RemoveReferences.AddRange(removers.Select(x=>x.ReferenceName));
+        RemoveReferences.AddRange(removers.SelectMany(x=>x.ReferenceNames));
         foreach (var reference in assemblyNameReferences)
         {
             if (RemoveReferences.Any(x => x == reference.Name))

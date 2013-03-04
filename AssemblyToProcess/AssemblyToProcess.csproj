@@ -38,6 +38,15 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\packages\FakeItEasy.1.9.0-beta01\lib\net40\FakeItEasy.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\packages\Machine.Specifications.0.5.11\lib\net40\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications.Clr4">
+      <HintPath>..\packages\Machine.Specifications.0.5.11\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
+    </Reference>
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
@@ -61,6 +70,7 @@
     <Compile Include="ClassEndingInMock.cs" />
     <Compile Include="ClassEndingInTests.cs" />
     <Compile Include="ForceReferences.cs" />
+    <Compile Include="MSpecTestFixture.cs" />
     <Compile Include="NUnitTestFixture.cs" />
     <Compile Include="XUnitTestFixture.cs" />
   </ItemGroup>

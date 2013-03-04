@@ -1,10 +1,10 @@
 ﻿using Mono.Cecil;
 
-class MoqRemover : IRemover
+class FakeItEasyRemover : IRemover
 {
     public string[] ReferenceNames
     {
-        get { return new[]{ "moq"}; }
+        get { return new[]{ "FakeItEasy"}; }
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

@@ -3,9 +3,9 @@ using Mono.Cecil;
 
 class EndsWithMockRemover : IRemover
 {
-    public string ReferenceName
+    public string[] ReferenceNames
     {
-        get { return null; }
+        get { return new string[]{}; }
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

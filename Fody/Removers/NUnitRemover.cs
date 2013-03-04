@@ -3,9 +3,9 @@ using Mono.Cecil;
 
 class NUnitRemover : IRemover
 {
-    public string ReferenceName
+    public string[] ReferenceNames
     {
-        get { return "nunit.framework"; }
+        get { return new[]{ "nunit.framework"}; }
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

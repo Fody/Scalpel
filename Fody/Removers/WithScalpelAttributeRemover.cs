@@ -19,5 +19,8 @@ class WithScalpelAttributeRemover : IRemover
         return y.AttributeType.FullName == "Scalpel.RemoveAttribute";
     }
 
-    public string ReferenceName { get { return "Scalpel"; } }
+    public string[] ReferenceNames
+    {
+        get { return new[]{"Scalpel"}; }
+    }
 }
