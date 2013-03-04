@@ -16,15 +16,23 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
  * Removes all types ending in `Mock`
  * Removes all types marked with `NUnit.TestFixture`
  * Removes all types containing a method marked with `Xunit.Fact`
- * Removes all references to NUnit, Xunit, RhinoMocks, NSubstitute and Moq.
+ * Removes all types containing a field from `Machine.Specifications` or `Machine.Specifications.Clr4`
+ * Removes all references to 
+    * NUnit
+    * Xunit
+    * RhinoMocks
+    * NSubstitute
+    * FakeItEasy
+    * Machine.Specifications.Clr4 and Machine.Specifications  
+    * Moq
  * Removes all types marked with `Scalpel.RemoveAttribute`.
  * Removes all references as defined in  `<Scalpel RemoveReferences='XXX'/>` see below.
 
 ## But WHY?
 
-When coding tests should be a first class citizen to the functionality you are creating. As such it makes sense for them to be co-located with the code being tested. Unfortunately due to the nature of .net this is very difficult to achieve. The reason is that if you place tests next to the code being tested you and up having those tests include in your deployable assembly. You also have the problem of your assembly referencing unit test helper libraries like NUnit and Moq.
+When coding any tests then these tests should be a first class citizen to the functionality you are creating. As such it makes sense for them to be co-located with the code being tested. Unfortunately due to the nature of .net this is very difficult to achieve. The reason is that if you place tests next to the code being tested you and up having those tests include in your deployable assembly. You also have the problem of your assembly referencing unit test helper libraries like NUnit and Moq.
 
-It also has the added side effect of allowing you to test internal types without needing to use the [InternalsVisibleToAttribute](http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.internalsvisibletoattribute.aspx).
+So Scalpel helps you work around the above problem by striping tests and references from your assembly. It also has the added side effect of allowing you to test internal types without needing to use the [InternalsVisibleToAttribute](http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.internalsvisibletoattribute.aspx).
 
 ## But how do I test my deployable artefacts
 
