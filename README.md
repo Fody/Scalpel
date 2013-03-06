@@ -33,6 +33,7 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 
  * Removes all types containing a field from `Machine.Specifications` or `Machine.Specifications.Clr4`
  * Removes the Machine.Specifications.Clr4 and Machine.Specifications references.
+ * Removes all types that implement `ISupplementSpecificationResults`, `IAssemblyContext` or `ICleanupAfterEveryContextInAssembly`.
     
 ### RhinoMocks
 
