@@ -21,7 +21,7 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 
 ### NUnit
 
- * Removes all types marked with `NUnit.TestFixture`.
+ * Removes all types marked with any Nunit attribute.
  * Remove the NUnit reference.
 
 ### XUnit
