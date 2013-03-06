@@ -26,7 +26,7 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 
 ### XUnit
 
- * Removes all types containing a method marked with `Xunit.Fact`.
+ * Removes all types containing an XUNit attribute.
  * Removes the Xunit reference.
 
 ### MSpec
