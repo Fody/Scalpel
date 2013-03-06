@@ -75,8 +75,9 @@
     <Compile Include="MSpec\MSpecTestFixture.cs" />
     <Compile Include="MSpec\SupplementSpecificationResults.cs" />
     <Compile Include="NUnit\NUnitTestFixture.cs" />
-    <Compile Include="WithIgnoreAttribute.cs" />
-    <Compile Include="NUnit\XUnitTestFixture.cs" />
+    <Compile Include="NUnit\WithNUnitIgnoreAttribute.cs" />
+    <Compile Include="XUnit\XUnitRunWith.cs" />
+    <Compile Include="XUnit\XUnitTestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

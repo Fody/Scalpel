@@ -1,6 +1,7 @@
 ﻿using Xunit;
 
-public class XUnitTestFixture
+
+public class XUnitFact
 {
     
     [Fact]

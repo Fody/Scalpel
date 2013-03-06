@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Mono.Cecil;
 
 class XUnitRemover : IRemover
@@ -10,16 +11,21 @@ class XUnitRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return typeDefinition.Methods.Any(HasFactAttribute);
+		return HasXunitAttribute(typeDefinition.CustomAttributes) || typeDefinition.Methods.Any(HasXUnitAttributes);
     }
 
-    static bool HasFactAttribute(MethodDefinition x)
+	static bool HasXunitAttribute(IEnumerable<CustomAttribute> customAttributes)
+	{
+		return customAttributes.Any(IsXUnitAttribute);
+	}
+
+	static bool IsXUnitAttribute(CustomAttribute y)
+	{
+		return y.AttributeType.Scope.Name == "XUnit";
+	}
+    static bool HasXUnitAttributes(MethodDefinition x)
     {
-        return x.CustomAttributes.Any(IsFactAttribute);
+		return HasXunitAttribute(x.CustomAttributes);
     }
 
-    static bool IsFactAttribute(CustomAttribute y)
-    {
-        return y.AttributeType.Name == "FactAttribute";
-    }
 }

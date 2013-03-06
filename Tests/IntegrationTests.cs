@@ -66,17 +66,6 @@ public partial class IntegrationTests
     {
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "Rhino.Mocks"));
     }
-
-    [Test]
-    public void XUnitIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "xunit"));
-    }
-    [Test]
-    public void NUnitIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "nunit.framework"));
-    }
     [Test]
     public void ClassEndingInMockIsRemoved()
     {
@@ -88,21 +77,11 @@ public partial class IntegrationTests
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "ClassEndingInTests"));
     }
 
-    [Test]
-    public void NUnitTestFixtureIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "NUnitTestFixture"));
-    }
 
     [Test]
     public void MarkedWithAttributeIsRemoved()
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "AlsoRemoveMe"));
-    }
-    [Test]
-    public void XUnitTestFixtureIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitTestFixture"));
     }
     
 #if(DEBUG)

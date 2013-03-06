@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="AssemblyExtensions.cs" />
     <Compile Include="ConfigReaderTests.cs" />
+    <Compile Include="Copy of IntegrationTests.cs" />
+    <Compile Include="NUnitTests.cs" />
     <Compile Include="MSpecTests.cs" />
     <Compile Include="Verifier.cs" />
     <Compile Include="IntegrationTests.cs" />

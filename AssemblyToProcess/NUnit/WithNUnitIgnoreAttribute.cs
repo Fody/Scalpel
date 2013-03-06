@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
 [Ignore]
-public class WithIgnoreAttribute
+public class WithNUnitIgnoreAttribute
 {
 }
