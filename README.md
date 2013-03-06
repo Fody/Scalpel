@@ -12,21 +12,44 @@ Available here http://nuget.org/packages/Scalpel.Fody
 
 When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11.5 or higher)
 
- * Removes all types ending in `Tests`
- * Removes all types ending in `Mock`
- * Removes all types marked with `NUnit.TestFixture`
- * Removes all types containing a method marked with `Xunit.Fact`
- * Removes all types containing a field from `Machine.Specifications` or `Machine.Specifications.Clr4`
- * Removes all references to 
-    * NUnit
-    * Xunit
-    * RhinoMocks
-    * NSubstitute
-    * FakeItEasy
-    * Machine.Specifications.Clr4 and Machine.Specifications  
-    * Moq
+### General
+
+ * Removes all types ending in `Tests`.
+ * Removes all types ending in `Mock`.
  * Removes all types marked with `Scalpel.RemoveAttribute`.
  * Removes all references as defined in  `<Scalpel RemoveReferences='XXX'/>` see below.
+
+### NUnit
+
+ * Removes all types marked with `NUnit.TestFixture`.
+ * Remove the NUnit reference.
+
+### XUnit
+
+ * Removes all types containing a method marked with `Xunit.Fact`.
+ * Removes the Xunit reference.
+
+### MSpec
+
+ * Removes all types containing a field from `Machine.Specifications` or `Machine.Specifications.Clr4`
+ * Removes the Machine.Specifications.Clr4 and Machine.Specifications references.
+    
+### RhinoMocks
+
+ * Removes the refernece to RhinoMocks.
+  
+### NSubstitute
+
+ * Removes the refernece to NSubstitute.
+  
+### FakeItEasy
+
+ * Removes the refernece to FakeItEasy.
+  
+### Moq
+
+ * Removes the refernece to Moq.
+ 
 
 ## But WHY?
 
