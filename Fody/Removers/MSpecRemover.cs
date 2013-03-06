@@ -14,10 +14,19 @@ class MSpecRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return typeDefinition.Fields.Any(IsMspecField);
+
+		return ContainsMSpecField(typeDefinition) ||
+			typeDefinition.Implements("Machine.Specifications.IAssemblyContext") ||
+			typeDefinition.Implements("Machine.Specifications.ICleanupAfterEveryContextInAssembly") ||
+			typeDefinition.Implements("Machine.Specifications.ISupplementSpecificationResults");
     }
 
-    static bool IsMspecField(FieldDefinition fieldDefinition)
+	static bool ContainsMSpecField(TypeDefinition typeDefinition)
+	{
+		return typeDefinition.Fields.Any(IsMspecField);
+	}
+
+	static bool IsMspecField(FieldDefinition fieldDefinition)
     {
         var fieldModuleName = fieldDefinition.FieldType.Scope.Name;
         return referenceNames.Any(x => x == fieldModuleName);

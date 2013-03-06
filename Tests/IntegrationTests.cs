@@ -6,7 +6,7 @@ using Mono.Cecil;
 using NUnit.Framework;
 
 [TestFixture]
-public class IntegrationTests
+public partial class IntegrationTests
 {
     Assembly assembly;
     string beforeAssemblyPath;
@@ -48,13 +48,6 @@ public class IntegrationTests
     public void FakeItEasyIsRemoved()
     {
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "FakeItEasy"));
-    }
-
-    [Test]
-    public void MSpecIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "Machine.Specifications"));
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "Machine.Specifications.Clr4"));
     }
 
     [Test]
@@ -111,12 +104,6 @@ public class IntegrationTests
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitTestFixture"));
     }
-    [Test]
-    public void MSpecTestFixtureIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "MSpecTestFixture"));
-    }
-
     
 #if(DEBUG)
     [Test]

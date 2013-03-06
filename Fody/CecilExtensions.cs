@@ -9,4 +9,8 @@ public static class CecilExtensions
     {
         return attributes.Any(attribute => attribute.Constructor.DeclaringType.Name == attributeName);
     }
+	public static bool Implements(this TypeDefinition typeDefinition, string interfaceName)
+	{
+		return typeDefinition.Interfaces.Any(_ => _.FullName == interfaceName);
+	}
 }

@@ -70,7 +70,10 @@
     <Compile Include="ClassEndingInMock.cs" />
     <Compile Include="ClassEndingInTests.cs" />
     <Compile Include="ForceReferences.cs" />
-    <Compile Include="MSpecTestFixture.cs" />
+    <Compile Include="MSpec\AssemblyContext.cs" />
+    <Compile Include="MSpec\CleanupAfterEveryContextInAssembly.cs" />
+    <Compile Include="MSpec\MSpecTestFixture.cs" />
+    <Compile Include="MSpec\SupplementSpecificationResults.cs" />
     <Compile Include="NUnitTestFixture.cs" />
     <Compile Include="XUnitTestFixture.cs" />
   </ItemGroup>
