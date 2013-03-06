@@ -10,11 +10,11 @@ class NUnitRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return typeDefinition.CustomAttributes.Any(IsTestFixtureAttribute);
+		return typeDefinition.CustomAttributes.Any(IsNUnitAttribute);
     }
 
-    static bool IsTestFixtureAttribute(CustomAttribute y)
+    static bool IsNUnitAttribute(CustomAttribute y)
     {
-        return y.AttributeType.Name == "TestFixtureAttribute";
+        return y.AttributeType.Scope.Name == "NUnit.framework";
     }
 }
