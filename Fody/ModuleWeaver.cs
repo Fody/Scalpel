@@ -34,12 +34,21 @@ public partial class ModuleWeaver
         }
         ReadConfig();
 
-        var typeDefinitions = ModuleDefinition.Types.ToList();
+        var typeDefinitions = ModuleDefinition.GetTypes().ToList();
         foreach (var type in typeDefinitions)
         {
             if (removers.Any(x => x.ShouldRemoveType(type)))
             {
-                ModuleDefinition.Types.Remove(type);
+                if (type.IsNested)
+                {
+                    var enclosingType = type.DeclaringType;
+                    enclosingType.NestedTypes.Remove(type);
+                }
+                else
+                {
+             
+                ModuleDefinition.Types.Remove(type);       
+                }
             }
         }
         var assemblyNameReferences = ModuleDefinition.AssemblyReferences.ToList();

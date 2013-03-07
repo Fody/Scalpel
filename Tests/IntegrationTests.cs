@@ -76,6 +76,11 @@ public partial class IntegrationTests
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "ClassEndingInTests"));
     }
+    [Test]
+    public void NestedClassEndingInTests()
+    {
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "NestedClassEndingInTests"));
+    }
 
 
     [Test]

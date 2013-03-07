@@ -69,6 +69,7 @@
     <Compile Include="AlsoRemoveMe.cs" />
     <Compile Include="ClassEndingInMock.cs" />
     <Compile Include="ClassEndingInTests.cs" />
+    <Compile Include="ClassWithNested.cs" />
     <Compile Include="ForceReferences.cs" />
     <Compile Include="MSpec\AssemblyContext.cs" />
     <Compile Include="MSpec\CleanupAfterEveryContextInAssembly.cs" />
