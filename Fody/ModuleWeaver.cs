@@ -6,6 +6,7 @@ using Mono.Cecil;
 public partial class ModuleWeaver
 {
     static List<IRemover> removers;
+    List<IRemover> filteredRemovers = new List<IRemover>();
     public Action<string> LogInfo { get; set; }
     public Action<string> LogWarning { get; set; }
     public ModuleDefinition ModuleDefinition { get; set; }
@@ -46,7 +47,7 @@ public partial class ModuleWeaver
         var typeDefinitions = ModuleDefinition.GetTypes().ToList();
         foreach (var type in typeDefinitions)
         {
-            if (removers.Any(x => x.ShouldRemoveType(type)))
+            if (filteredRemovers.Any(x => x.ShouldRemoveType(type)))
             {
                 if (type.IsNested)
                 {
@@ -66,27 +67,23 @@ public partial class ModuleWeaver
         var assemblyNameReferences = ModuleDefinition.AssemblyReferences.ToList();
 
         var queue = new Queue<IRemover>(removers);
-        while (removers.Count > 0)
+        while (queue.Count > 0)
         {
             var remover = queue.Dequeue();
 
             var referenceNamesToRemove = remover.GetReferenceNames().ToList();
             if (referenceNamesToRemove.Count == 0)
             {
+                filteredRemovers.Add(remover);
                 continue;
             }
-            var foundReference = false;
             foreach (var reference in assemblyNameReferences)
             {
                 if (referenceNamesToRemove.Contains(reference.Name))
                 {
-                    foundReference = true;
+                    filteredRemovers.Add(remover);
                     ModuleDefinition.AssemblyReferences.Remove(reference);
                 }
-            }
-            if (!foundReference)
-            {
-                removers.Remove(remover);
             }
         }
     }
