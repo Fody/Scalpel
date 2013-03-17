@@ -1,11 +1,13 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Mono.Cecil;
 
 class NUnitRemover : IRemover
 {
-    public string[] ReferenceNames
+    
+    public IEnumerable<string> GetReferenceNames()
     {
-        get { return new[]{ "nunit.framework"}; }
+        yield return "nunit.framework";
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

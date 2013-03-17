@@ -1,10 +1,12 @@
-﻿using Mono.Cecil;
+﻿using System.Collections.Generic;
+using Mono.Cecil;
 
 class NSubstituteRemover : IRemover
 {
-    public string[] ReferenceNames
+    
+    public IEnumerable<string> GetReferenceNames()
     {
-        get { return new[] {"NSubstitute"}; }
+        yield return "NSubstitute";
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

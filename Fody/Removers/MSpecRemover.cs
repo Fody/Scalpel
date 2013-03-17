@@ -1,20 +1,18 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Mono.Cecil;
 
 class MSpecRemover : IRemover
 {
-    static string[] referenceNames = new[] { "Machine.Specifications", "Machine.Specifications.Clr4" };
-    public string[] ReferenceNames
+
+    public IEnumerable<string> GetReferenceNames()
     {
-        get
-        {
-            return referenceNames;
-        }
+        yield return "Machine.Specifications";
+        yield return "Machine.Specifications.Clr4";
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-
 		return ContainsMSpecField(typeDefinition) ||
 			typeDefinition.Implements("Machine.Specifications.IAssemblyContext") ||
 			typeDefinition.Implements("Machine.Specifications.ICleanupAfterEveryContextInAssembly") ||
@@ -28,8 +26,7 @@ class MSpecRemover : IRemover
 
 	static bool IsMspecField(FieldDefinition fieldDefinition)
     {
-        var fieldModuleName = fieldDefinition.FieldType.Scope.Name;
-        return referenceNames.Any(x => x == fieldModuleName);
+        return fieldDefinition.FieldType.Scope.Name.StartsWith("Machine.Specifications");
     }
 
 }

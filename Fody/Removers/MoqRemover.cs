@@ -1,11 +1,14 @@
-﻿using Mono.Cecil;
+﻿using System.Collections.Generic;
+using Mono.Cecil;
 
 class MoqRemover : IRemover
 {
-    public string[] ReferenceNames
+
+    public IEnumerable<string> GetReferenceNames()
     {
-        get { return new[]{ "moq"}; }
+        yield return "moq";
     }
+
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {

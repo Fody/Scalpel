@@ -1,10 +1,12 @@
-﻿using Mono.Cecil;
+﻿using System.Collections.Generic;
+using Mono.Cecil;
 
 class FakeItEasyRemover : IRemover
 {
-    public string[] ReferenceNames
+
+    public IEnumerable<string> GetReferenceNames()
     {
-        get { return new[]{ "FakeItEasy"}; }
+        yield return "FakeItEasy";
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

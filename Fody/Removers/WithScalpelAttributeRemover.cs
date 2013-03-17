@@ -1,9 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Mono.Cecil;
 
 class WithScalpelAttributeRemover : IRemover
 {
-    
+    public IEnumerable<string> GetReferenceNames()
+    {
+        yield return "Scalpel";
+    }
+
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return typeDefinition.CustomAttributes.Any(IsRemoveAttribute);
@@ -19,8 +24,4 @@ class WithScalpelAttributeRemover : IRemover
         return y.AttributeType.FullName == "Scalpel.RemoveAttribute";
     }
 
-    public string[] ReferenceNames
-    {
-        get { return new[]{"Scalpel"}; }
-    }
 }

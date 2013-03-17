@@ -4,9 +4,10 @@ using Mono.Cecil;
 
 class XUnitRemover : IRemover
 {
-    public string[] ReferenceNames
+
+    public IEnumerable<string> GetReferenceNames()
     {
-        get { return new[]{ "xunit"}; }
+        yield return "xunit";
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

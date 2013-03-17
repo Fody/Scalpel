@@ -1,10 +1,12 @@
-﻿using Mono.Cecil;
+﻿using System.Collections.Generic;
+using Mono.Cecil;
 
 class RhinoMocksRemover : IRemover
 {
-    public string[] ReferenceNames
+
+    public IEnumerable<string> GetReferenceNames()
     {
-        get { return new[]{ "Rhino.Mocks"}; }
+        yield return "Rhino.Mocks";
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

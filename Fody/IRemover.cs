@@ -1,7 +1,8 @@
-﻿using Mono.Cecil;
+﻿using System.Collections.Generic;
+using Mono.Cecil;
 
 interface IRemover
 {
-    string[] ReferenceNames { get; }
+    IEnumerable<string> GetReferenceNames();
     bool ShouldRemoveType(TypeDefinition typeDefinition);
 }

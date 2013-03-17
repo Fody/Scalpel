@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using Mono.Cecil;
 
 class EndsWithTestsRemover : IRemover
 {
-    public string[] ReferenceNames
+
+    public IEnumerable<string> GetReferenceNames()
     {
-        get { return new string[]{}; }
+        yield break;
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
