@@ -3,8 +3,10 @@
 public class MSpecTestFixture
 {
     
-    It itField = () =>
-                 classBeingTested.ShouldBeTrue();
+//// ReSharper disable UnusedMember.Local
+    It itField = () => classBeingTested.ShouldBeTrue();
+//// ReSharper restore UnusedMember.Local
+       
 
     static ClassBeingTested classBeingTested;
     public class ClassBeingTested

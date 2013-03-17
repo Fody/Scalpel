@@ -34,6 +34,15 @@ public partial class ModuleWeaver
         }
         ReadConfig();
 
+        CleanRefsBasedOnRemovers();
+
+        CleanRefsBasedOnConfiguration();
+
+        CleanTypesBasedOnRemovers();
+    }
+
+    void CleanTypesBasedOnRemovers()
+    {
         var typeDefinitions = ModuleDefinition.GetTypes().ToList();
         foreach (var type in typeDefinitions)
         {
@@ -46,13 +55,45 @@ public partial class ModuleWeaver
                 }
                 else
                 {
-             
-                ModuleDefinition.Types.Remove(type);       
+                    ModuleDefinition.Types.Remove(type);
                 }
             }
         }
+    }
+
+    void CleanRefsBasedOnRemovers()
+    {
         var assemblyNameReferences = ModuleDefinition.AssemblyReferences.ToList();
-        RemoveReferences.AddRange(removers.SelectMany(x=>x.GetReferenceNames()));
+
+        var queue = new Queue<IRemover>(removers);
+        while (removers.Count > 0)
+        {
+            var remover = queue.Dequeue();
+
+            var referenceNamesToRemove = remover.GetReferenceNames().ToList();
+            if (referenceNamesToRemove.Count == 0)
+            {
+                continue;
+            }
+            var foundReference = false;
+            foreach (var reference in assemblyNameReferences)
+            {
+                if (referenceNamesToRemove.Contains(reference.Name))
+                {
+                    foundReference = true;
+                    ModuleDefinition.AssemblyReferences.Remove(reference);
+                }
+            }
+            if (!foundReference)
+            {
+                removers.Remove(remover);
+            }
+        }
+    }
+
+    void CleanRefsBasedOnConfiguration()
+    {
+        var assemblyNameReferences = ModuleDefinition.AssemblyReferences.ToList();
         foreach (var reference in assemblyNameReferences)
         {
             if (RemoveReferences.Any(x => x == reference.Name))
