@@ -84,9 +84,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReferenceAssembly\ReferenceAssembly.csproj">
+    <ProjectReference Include="..\ReferenceAssembly\ReferenceAssembly_PCL.csproj">
       <Project>{9C9F7F26-EDCF-4D95-9F6A-AF8504528D95}</Project>
-      <Name>ReferenceAssembly</Name>
+      <Name>ReferenceAssembly_PCL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
