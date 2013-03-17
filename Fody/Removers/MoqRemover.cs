@@ -6,7 +6,7 @@ class MoqRemover : IRemover
 
     public IEnumerable<string> GetReferenceNames()
     {
-        yield return "moq";
+        yield return "Moq";
     }
 
 
