@@ -41,7 +41,7 @@ public partial class IntegrationTests
     [Test]
     public void MoqIsRemoved()
     {
-        AssemblyName[] referencedAssemblies = assembly.GetReferencedAssemblies();
+        var referencedAssemblies = assembly.GetReferencedAssemblies();
         Assert.IsFalse(referencedAssemblies.Any(x=>x.Name == "Moq"));
     }
 
