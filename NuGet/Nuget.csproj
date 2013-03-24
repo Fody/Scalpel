@@ -49,8 +49,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Fody\Fody.csproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <Project>{C3578A7B-09A6-4444-9383-0DEAFA4958BD}</Project>
-      <Name>Fody</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReferenceAssembly\ReferenceAssembly_3.5.csproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\ReferenceAssembly\ReferenceAssembly_PCL.csproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
 </Project>
