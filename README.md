@@ -4,9 +4,13 @@ Strips all testing code from an assembly
 
 [Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
 
-## Nuget package
+## Nuget 
 
-Available here http://nuget.org/packages/Scalpel.Fody 
+Nuget here http://nuget.org/packages/Scalpel.Fody 
+
+To Install from the Nuget Package Manager Console 
+    
+    PM> Install-Package Scalpel.Fody
 
 ## What it actually does. 
 
