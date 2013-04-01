@@ -95,3 +95,8 @@ Or as a attribute with items delimited by a pipe `|`.
     <Scalpel RemoveReferences='Foo|Bar'/>
     
     
+
+## Icon
+
+Icon courtesy of [The Noun Project](http://thenounproject.com)
+
