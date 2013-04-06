@@ -29,8 +29,21 @@ public partial class ModuleWeaver
 
     public void Execute()
     {
+        var assemblyReferences = ModuleDefinition.AssemblyReferences;
+        var assemblyNameReference = assemblyReferences.FirstOrDefault(x => x.Name == "Scalpel");
+        assemblyReferences.Remove(assemblyNameReference);
+
         if (DefineConstants == null || DefineConstants.All(x => x != "Scalpel"))
         {
+            var typeDefinitions = ModuleDefinition.GetTypes().ToList();
+            foreach (var type in typeDefinitions)
+            {
+                var removeAttribute = type.CustomAttributes.FirstOrDefault(x => x.AttributeType.FullName == "Scalpel.RemoveAttribute");
+                if (removeAttribute != null)
+                {
+                    type.CustomAttributes.Remove(removeAttribute);
+                }
+            }
             return;
         }
         ReadConfig();

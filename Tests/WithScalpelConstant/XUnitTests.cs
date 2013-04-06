@@ -2,7 +2,7 @@
 using NUnit.Framework;
 
 [TestFixture]
-public partial class IntegrationTests
+public partial class WithScalpelConstantTests
 {
 
     [Test]

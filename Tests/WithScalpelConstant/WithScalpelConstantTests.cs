@@ -6,13 +6,13 @@ using Mono.Cecil;
 using NUnit.Framework;
 
 [TestFixture]
-public partial class IntegrationTests
+public partial class WithScalpelConstantTests
 {
     Assembly assembly;
     string beforeAssemblyPath;
     string afterAssemblyPath;
 
-    public IntegrationTests()
+    public WithScalpelConstantTests()
     {
 
         beforeAssemblyPath = Path.GetFullPath(@"..\..\..\AssemblyToProcess\bin\Debug\AssemblyToProcess.dll");
@@ -21,7 +21,7 @@ public partial class IntegrationTests
         beforeAssemblyPath = beforeAssemblyPath.Replace("Debug", "Release");
 #endif
 
-        afterAssemblyPath = beforeAssemblyPath.Replace(".dll", "2.dll");
+        afterAssemblyPath = beforeAssemblyPath.Replace(".dll", "WithScalpelConstant.dll");
         File.Copy(beforeAssemblyPath, afterAssemblyPath, true);
 
         var moduleDefinition = ModuleDefinition.ReadModule(afterAssemblyPath);
@@ -39,50 +39,28 @@ public partial class IntegrationTests
 
 
     [Test]
-    public void MoqIsRemoved()
-    {
-        var referencedAssemblies = assembly.GetReferencedAssemblies();
-        Assert.IsFalse(referencedAssemblies.Any(x=>x.Name == "Moq"));
-    }
-
-    [Test]
-    public void FakeItEasyIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "FakeItEasy"));
-    }
-
-    [Test]
-    public void NSubstituteIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "NSubstitute"));
-    }
-    [Test]
-    public void ScalepelIsRemoved()
+    public void ScalpelIsRemoved()
     {
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "Scalpel"));
     }
 
     [Test]
-    public void RhinoMocksIsRemoved()
-    {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "Rhino.Mocks"));
-    }
-    [Test]
     public void ClassEndingInMockIsRemoved()
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "ClassEndingInMock"));
     }
+
     [Test]
     public void ClassEndingInTestsIsRemoved()
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "ClassEndingInTests"));
     }
+
     [Test]
     public void NestedClassEndingInTests()
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "NestedClassEndingInTests"));
     }
-
 
     [Test]
     public void MarkedWithAttributeIsRemoved()

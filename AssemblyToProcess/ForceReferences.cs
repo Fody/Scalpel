@@ -5,10 +5,10 @@ using NUnit.Framework;
 [TestFixture]
 public class ForceReferences
 {
-    //// ReSharper disable UnusedMember.Local
+#pragma warning disable 169
     Type moqType = typeof(Moq.Mock);
     Type nsubType = typeof (NSubstitute.Arg);
     Type rhinoType = typeof (Rhino.Mocks.RhinoMocks);
     Type fakeItEasyType = typeof(A);
-    //// ReSharper restore UnusedMember.Local
+#pragma warning restore 169
 }

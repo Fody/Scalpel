@@ -3,9 +3,9 @@
 public class MSpecTestFixture
 {
     
-//// ReSharper disable UnusedMember.Local
+#pragma warning disable 169
     It itField = () => classBeingTested.ShouldBeTrue();
-//// ReSharper restore UnusedMember.Local
+#pragma warning restore 169
        
 
     static ClassBeingTested classBeingTested;
