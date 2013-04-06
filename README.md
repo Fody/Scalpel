@@ -98,5 +98,5 @@ Or as a attribute with items delimited by a pipe `|`.
 
 ## Icon
 
-Icon courtesy of [The Noun Project](http://thenounproject.com)
+<a href="http://thenounproject.com/noun/exacto-knife/#icon-No489" target="_blank">Exacto Knife</a>  from The Noun Project
 
