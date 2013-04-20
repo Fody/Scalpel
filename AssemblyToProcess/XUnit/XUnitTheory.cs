@@ -1,10 +1,8 @@
 ﻿using Xunit;
 
-
-public class XUnitFact
+public class XUnitTheory
 {
-
-    [Fact]
+    [Theory]
     public void Method()
     {
 

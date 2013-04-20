@@ -1,10 +1,8 @@
 ﻿using Xunit;
 
-
-public class XUnitFact
+public class XUnitInlineData
 {
-
-    [Fact]
+    [InlineData]
     public void Method()
     {
 
