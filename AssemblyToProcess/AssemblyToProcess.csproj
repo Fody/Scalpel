@@ -41,6 +41,12 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ApprovalTests">
+      <HintPath>..\packages\ApprovalTests.2.2\lib\ApprovalTests.dll</HintPath>
+    </Reference>
+    <Reference Include="ApprovalUtilities">
+      <HintPath>..\packages\ApprovalTests.2.2\lib\ApprovalUtilities.dll</HintPath>
+    </Reference>
     <Reference Include="FakeItEasy, Version=1.10.0.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\FakeItEasy.1.10.0\lib\net40\FakeItEasy.dll</HintPath>
@@ -77,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlsoRemoveMe.cs" />
+    <Compile Include="ApprovalTests\WithApprovalTestsUseReporterAttribute.cs" />
     <Compile Include="ClassEndingInMock.cs" />
     <Compile Include="ClassEndingInTests.cs" />
     <Compile Include="ClassWithNested.cs" />

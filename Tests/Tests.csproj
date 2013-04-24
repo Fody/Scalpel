@@ -84,6 +84,7 @@
     <Compile Include="AssemblyExtensions.cs" />
     <Compile Include="ConfigReaderTests.cs" />
     <Compile Include="WithNoScalpelConstant\WithNoScalpelConstantTests.cs" />
+    <Compile Include="WithScalpelConstant\ApprovalTests.cs" />
     <Compile Include="WithScalpelConstant\RhinoMocksTests.cs" />
     <Compile Include="WithScalpelConstant\NSubstituteTests.cs" />
     <Compile Include="WithScalpelConstant\FakeItEasyTests.cs" />
