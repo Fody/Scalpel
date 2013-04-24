@@ -8,6 +8,7 @@ class ApprovalTestsRemover : IRemover
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "ApprovalTests";
+        yield return "ApprovalUtilities";
     }
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)

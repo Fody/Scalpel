@@ -9,7 +9,12 @@ public partial class WithScalpelConstantTests
     {
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "ApprovalTests"));
     }
-
+    [Test]
+    public void ApprovalUtilitiesIsRemoved()
+    {
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "ApprovalUtilities"));
+    }
+    
     [Test]
     public void WithApprovalTestsUseReporterRemoved()
     {
