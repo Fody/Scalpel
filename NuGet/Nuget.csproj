@@ -31,18 +31,8 @@
     <MakeDir Directories="$(SolutionDir)NuGetBuild" />
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_3.5\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET35" />
     <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_3.5\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET35" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET40" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET40" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\WinRT45" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\WinRT45" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL40-WP" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL40-WP" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL40-WP71" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\SL40-WP71" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8" />
-    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40" />
     <Copy SourceFiles="$(SolutionDir)NuGet\Scalpel.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <Copy SourceFiles="$(SolutionDir)Fody\bin\$(ConfigurationName)\Scalpel.Fody.dll" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <Copy SourceFiles="$(ProjectDir)install.ps1" DestinationFolder="$(SolutionDir)NuGetBuild\Tools" />
