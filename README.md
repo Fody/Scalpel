@@ -1,5 +1,7 @@
 # Test Remover addin for [Fody](https://github.com/Fody/Fody/) 
 
+![Icon](https://raw.github.com/Fody/Scalpel/master/Icons/package_icon.png)
+
 Strips all testing code from an assembly
 
 [Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
