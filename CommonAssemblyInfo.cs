@@ -2,5 +2,5 @@
 
 [assembly: AssemblyTitle("Scalpel")]
 [assembly: AssemblyProduct("Scalpel")]
-[assembly: AssemblyVersion("0.12.2")]
-[assembly: AssemblyFileVersion("0.12.2")]
+[assembly: AssemblyVersion("0.12.3")]
+[assembly: AssemblyFileVersion("0.12.3")]
