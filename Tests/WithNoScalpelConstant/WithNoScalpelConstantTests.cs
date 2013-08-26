@@ -6,7 +6,7 @@ using Mono.Cecil;
 using NUnit.Framework;
 
 [TestFixture]
-public partial class WithNoScalpelConstantTests
+public class WithNoScalpelConstantTests
 {
     Assembly assembly;
     string beforeAssemblyPath;
@@ -39,7 +39,7 @@ public partial class WithNoScalpelConstantTests
 
 
     [Test]
-    public void ScalepelIsRemoved()
+    public void ScalpelIsRemoved()
     {
         Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "Scalpel"));
     }
