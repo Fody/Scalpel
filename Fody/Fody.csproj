@@ -87,9 +87,31 @@
     <Compile Include="Removers\XUnitRemover.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NugetAssets\install.ps1" />
+    <None Include="NugetAssets\Scalpel.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NugetAssets\uninstall.ps1" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(ProjectPath)\..\..\Tools\Pepita\PepitaGet.targets" />
   <Import Project="Fody.targets" />
+  <UsingTask TaskName="PepitaPackage.WeavingTask" AssemblyFile="$(SolutionDir)Tools\Pepita\PepitaPackage.dll" />
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <FilesToDelete Include="$(SolutionDir)NuGetBuild\**\*.*" />
+    </ItemGroup>
+    <Delete Files="@(FilesToDelete)" />
+    <MakeDir Directories="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_3.5\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET35" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_3.5\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET35" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40" />
+    <Copy SourceFiles="$(SolutionDir)ReferenceAssembly\bin\$(ConfigurationName)_PCL\Scalpel.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40" />
+    <Copy SourceFiles="$(ProjectDir)NuGetAssets\Scalpel.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(OutputPath)Scalpel.Fody.dll" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(OutputPath)Scalpel.Fody.pdb" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(ProjectDir)NuGetAssets\install.ps1" DestinationFolder="$(SolutionDir)NuGetBuild\Tools" />
+    <Copy SourceFiles="$(ProjectDir)NuGetAssets\uninstall.ps1" DestinationFolder="$(SolutionDir)NuGetBuild\Tools" />
+    <PepitaPackage.WeavingTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(OutputPath)Scalpel.Fody.dll" />
+  </Target>
 </Project>
