@@ -11,6 +11,16 @@ class MSpecRemover : IRemover
         yield return "Machine.Specifications.Clr4";
     }
 
+    public IEnumerable<string> GetModuleAttributeNames()
+    {
+        yield break;
+    }
+
+    public IEnumerable<string> GetAssemblyAttributeNames()
+    {
+        yield break;
+    }
+
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
 		return ContainsMSpecField(typeDefinition) ||

@@ -11,6 +11,16 @@ class XUnitRemover : IRemover
         yield return "xunit2";
     }
 
+    public IEnumerable<string> GetModuleAttributeNames()
+    {
+        yield break;
+    }
+
+    public IEnumerable<string> GetAssemblyAttributeNames()
+    {
+        yield return "Xunit.CollectionBehaviorAttribute";
+    }
+
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
 		return HasXunitAttribute(typeDefinition.CustomAttributes) || typeDefinition.Methods.Any(HasXUnitAttributes);

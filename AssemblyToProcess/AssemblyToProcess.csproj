@@ -92,7 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlsoRemoveMe.cs" />
-    <Compile Include="ApprovalTests\WithAssemblyLevelApprovalTestsUseReporterAttribute.cs" />
+    <Compile Include="ApprovalTests\ModuleAttributes.cs" />
+    <Compile Include="ApprovalTests\AssemblyAtteributes.cs" />
     <Compile Include="ApprovalTests\WithApprovalTestsUseReporterAttribute.cs" />
     <Compile Include="ClassEndingInMock.cs" />
     <Compile Include="ClassEndingInTests.cs" />
@@ -104,10 +105,27 @@
     <Compile Include="MSpec\SupplementSpecificationResults.cs" />
     <Compile Include="NUnit\NUnitTestFixture.cs" />
     <Compile Include="NUnit\WithNUnitIgnoreAttribute.cs" />
-    <Compile Include="XUnit\XUnitInlineData.cs" />
-    <Compile Include="XUnit\XUnitPropertyData.cs" />
-    <Compile Include="XUnit\XUnitTestFixture.cs" />
-    <Compile Include="XUnit\XUnitTheory.cs" />
+    <Compile Include="XUnit\XUnitCollectionBehavior.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XUnit\XUnitFact.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XUnit\XUnitInlineData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XUnit\XUnitPropertyData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XUnit\XUnitTheory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XUnit\XUnitTraitOnClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XUnit\XUnitTraitOnMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -118,5 +136,6 @@
       <Name>ReferenceAssembly_PCL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,16 @@ class WithScalpelAttributeRemover : IRemover
         yield break;
     }
 
+    public IEnumerable<string> GetModuleAttributeNames()
+    {
+        yield break;
+    }
+
+    public IEnumerable<string> GetAssemblyAttributeNames()
+    {
+        yield break;
+    }
+
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return typeDefinition.CustomAttributes.Any(IsRemoveAttribute);

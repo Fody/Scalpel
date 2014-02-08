@@ -9,6 +9,16 @@ class NSubstituteRemover : IRemover
         yield return "NSubstitute";
     }
 
+    public IEnumerable<string> GetModuleAttributeNames()
+    {
+        yield break;
+    }
+
+    public IEnumerable<string> GetAssemblyAttributeNames()
+    {
+        yield break;
+    }
+
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return false;

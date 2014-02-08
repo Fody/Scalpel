@@ -53,6 +53,29 @@ public partial class ModuleWeaver
         CleanRefsBasedOnConfiguration();
 
         CleanTypesBasedOnRemovers();
+        CleanModuleAndAssemblyAttributes();
+    }
+
+    void CleanModuleAndAssemblyAttributes()
+    {
+        foreach (var remover in removers)
+        {
+
+            foreach (var attributeName in remover.GetModuleAttributeNames())
+            {
+                foreach (var attributeToRemove in ModuleDefinition.CustomAttributes.Where(x => x.AttributeType.FullName == attributeName).ToList())
+                {
+                    ModuleDefinition.CustomAttributes.Remove(attributeToRemove);
+                }
+            }
+            foreach (var attributeName in remover.GetAssemblyAttributeNames())
+            {
+                foreach (var attributeToRemove in ModuleDefinition.Assembly.CustomAttributes.Where(x => x.AttributeType.FullName == attributeName).ToList())
+                {
+                    ModuleDefinition.Assembly.CustomAttributes.Remove(attributeToRemove);
+                }
+            }
+        }
     }
 
     void CleanTypesBasedOnRemovers()
@@ -62,15 +85,7 @@ public partial class ModuleWeaver
         {
             if (filteredRemovers.Any(x => x.ShouldRemoveType(type)))
             {
-                if (type.IsNested)
-                {
-                    var enclosingType = type.DeclaringType;
-                    enclosingType.NestedTypes.Remove(type);
-                }
-                else
-                {
-                    ModuleDefinition.Types.Remove(type);
-                }
+                ModuleDefinition.RemoveType(type);
             }
         }
     }

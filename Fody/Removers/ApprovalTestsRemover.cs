@@ -11,6 +11,17 @@ class ApprovalTestsRemover : IRemover
         yield return "ApprovalUtilities";
     }
 
+    public IEnumerable<string> GetModuleAttributeNames()
+    {
+        yield return "ApprovalTests.Reporters.UseReporterAttribute";
+    }
+
+    public IEnumerable<string> GetAssemblyAttributeNames()
+    {
+        yield return "ApprovalTests.Reporters.UseReporterAttribute";
+        yield return "ApprovalTests.Reporters.FrontLoadedReporterAttribute";
+    }
+
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
         return typeDefinition.CustomAttributes.Any(IsApprovalTests);

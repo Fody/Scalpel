@@ -9,6 +9,16 @@ class MoqRemover : IRemover
         yield return "Moq";
     }
 
+    public IEnumerable<string> GetModuleAttributeNames()
+    {
+        yield break;
+    }
+
+    public IEnumerable<string> GetAssemblyAttributeNames()
+    {
+        yield break;
+    }
+
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
