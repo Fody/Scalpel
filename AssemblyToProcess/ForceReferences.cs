@@ -3,6 +3,7 @@ using FakeItEasy;
 using NUnit.Framework;
 
 [TestFixture]
+[Explicit]
 public class ForceReferences
 {
 #pragma warning disable 169

@@ -35,8 +35,12 @@ class MSpecRemover : IRemover
 	}
 
 	static bool IsMspecField(FieldDefinition fieldDefinition)
-    {
-        return fieldDefinition.FieldType.Scope.Name.StartsWith("Machine.Specifications");
-    }
-
+	{
+	    var scope = fieldDefinition.FieldType.Scope;
+	    if (scope == null)
+	    {
+	        return false;
+	    }
+	    return scope.Name.StartsWith("Machine.Specifications");
+	}
 }
