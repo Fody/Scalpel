@@ -28,7 +28,7 @@ public class WithNoScalpelConstantTests
         var weavingTask = new ModuleWeaver
         {
             ModuleDefinition = moduleDefinition,
-            DefineConstants = new List<string> {}
+            DefineConstants = new List<string>()
         };
 
         weavingTask.Execute();
