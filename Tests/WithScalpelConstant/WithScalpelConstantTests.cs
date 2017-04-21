@@ -14,25 +14,25 @@ public partial class WithScalpelConstantTests
 
     public WithScalpelConstantTests()
     {
-
-        beforeAssemblyPath = Path.GetFullPath(@"..\..\..\AssemblyToProcess\bin\Debug\AssemblyToProcess.dll");
+        beforeAssemblyPath = Path.GetFullPath(Path.Combine(TestContext.CurrentContext.TestDirectory,@"..\..\..\AssemblyToProcess\bin\Debug\AssemblyToProcess.dll"));
 #if (!DEBUG)
-
         beforeAssemblyPath = beforeAssemblyPath.Replace("Debug", "Release");
 #endif
 
         afterAssemblyPath = beforeAssemblyPath.Replace(".dll", "WithScalpelConstant.dll");
         File.Copy(beforeAssemblyPath, afterAssemblyPath, true);
 
-        var moduleDefinition = ModuleDefinition.ReadModule(afterAssemblyPath);
-        var weavingTask = new ModuleWeaver
+        using (var moduleDefinition = ModuleDefinition.ReadModule(beforeAssemblyPath))
         {
-            ModuleDefinition = moduleDefinition,
-            DefineConstants = new List<string> {"Scalpel"}
-        };
+            var weavingTask = new ModuleWeaver
+            {
+                ModuleDefinition = moduleDefinition,
+                DefineConstants = new List<string> {"Scalpel"}
+            };
 
-        weavingTask.Execute();
-        moduleDefinition.Write(afterAssemblyPath);
+            weavingTask.Execute();
+            moduleDefinition.Write(afterAssemblyPath);
+        }
 
         assembly = Assembly.LoadFile(afterAssemblyPath);
     }
