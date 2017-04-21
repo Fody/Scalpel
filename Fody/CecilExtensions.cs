@@ -22,8 +22,9 @@ public static class CecilExtensions
             module.Types.Remove(type);
         }
     }
-	public static bool Implements(this TypeDefinition typeDefinition, string interfaceName)
-	{
-		return typeDefinition.Interfaces.Any(_ => _.FullName == interfaceName);
-	}
+
+    public static bool Implements(this TypeDefinition typeDefinition, string interfaceName)
+    {
+        return typeDefinition.Interfaces.Any(_ => _.InterfaceType.FullName == interfaceName);
+    }
 }

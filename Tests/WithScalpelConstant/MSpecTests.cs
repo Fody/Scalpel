@@ -17,16 +17,17 @@ public partial class WithScalpelConstantTests
     {
         Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "MSpecTestFixture"));
     }
+
     [Test]
-	public void CleanupAfterEveryContextInAssemblyRemoved()
+    public void CleanupAfterEveryContextInAssemblyRemoved()
     {
-		Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "CleanupAfterEveryContextInAssembly"));
-    }
-    [Test]
-	public void AssemblyContextRemoved()
-    {
-		Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "AssemblyContext"));
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "CleanupAfterEveryContextInAssembly"));
     }
 
+    [Test]
+    public void AssemblyContextRemoved()
+    {
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "AssemblyContext"));
+    }
 
 }

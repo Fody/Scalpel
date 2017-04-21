@@ -1,9 +1,9 @@
 using Machine.Specifications;
 
-public class CleanupAfterEveryContextInAssembly:ICleanupAfterEveryContextInAssembly
+public class CleanupAfterEveryContextInAssembly : ICleanupAfterEveryContextInAssembly
 {
-	public void AfterContextCleanup()
-	{
-		
-	}
+    public void AfterContextCleanup()
+    {
+
+    }
 }

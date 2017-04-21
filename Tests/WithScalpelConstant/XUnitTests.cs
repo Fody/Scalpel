@@ -8,7 +8,7 @@ public partial class WithScalpelConstantTests
     [Test]
     public void XUnitIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "xunit"));
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "xunit"));
     }
 
     [Test]
@@ -25,15 +25,15 @@ public partial class WithScalpelConstantTests
 
 
     [Test]
-	public void XUnitFactIsRemoved()
+    public void XUnitFactIsRemoved()
     {
-		Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitFact"));
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitFact"));
     }
 
     [Test]
-	public void XUnitRunWithIsRemoved()
+    public void XUnitRunWithIsRemoved()
     {
-		Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitRunWith"));
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitRunWith"));
     }
 
 }

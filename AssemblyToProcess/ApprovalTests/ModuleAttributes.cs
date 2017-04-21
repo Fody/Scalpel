@@ -1,4 +1,3 @@
-﻿
-using ApprovalTests.Reporters;
+﻿using ApprovalTests.Reporters;
 
 [module: UseReporter(typeof(ClipboardReporter), typeof(DiffReporter))]

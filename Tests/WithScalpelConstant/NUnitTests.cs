@@ -7,7 +7,7 @@ public partial class WithScalpelConstantTests
     [Test]
     public void NUnitIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "nunit.framework"));
+        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "nunit.framework"));
     }
 
     [Test]
@@ -17,9 +17,9 @@ public partial class WithScalpelConstantTests
     }
 
     [Test]
-	public void WithNUnitIgnoreAttributeRemoved()
+    public void WithNUnitIgnoreAttributeRemoved()
     {
-		Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "WithNUnitIgnoreAttribute"));
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "WithNUnitIgnoreAttribute"));
     }
 
 

@@ -4,7 +4,7 @@ using Mono.Cecil;
 
 class NUnitRemover : IRemover
 {
-    
+
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "nunit.framework";
@@ -22,7 +22,7 @@ class NUnitRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-		return typeDefinition.CustomAttributes.Any(IsNUnitAttribute);
+        return typeDefinition.CustomAttributes.Any(IsNUnitAttribute);
     }
 
     static bool IsNUnitAttribute(CustomAttribute y)
