@@ -18,9 +18,9 @@ public partial class WithScalpelConstantTests
     }
 
     [Test]
-    public void XUnitPropertyDataIsRemoved()
+    public void XUnitMemberDataIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitPropertyData"));
+        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitMemberData"));
     }
 
 

@@ -27,6 +27,6 @@ class NUnitRemover : IRemover
 
     static bool IsNUnitAttribute(CustomAttribute y)
     {
-        return y.AttributeType.Scope.Name == "NUnit.framework";
+        return y.AttributeType.Scope.Name == "nunit.framework";
     }
 }
