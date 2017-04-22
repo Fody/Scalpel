@@ -8,6 +8,7 @@ class XUnitRemover : IRemover
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "xunit";
+        yield return "xunit.core";
         yield return "xunit2";
     }
 
@@ -35,8 +36,9 @@ class XUnitRemover : IRemover
     {
         var scope = y.AttributeType.Scope.Name;
         return
-            scope == "Xunit" ||
-            scope == "Xunit2";
+            scope == "xunit" ||
+            scope == "xunit.core" ||
+            scope == "xunit2";
     }
 
     static bool HasXUnitAttributes(MethodDefinition x)
