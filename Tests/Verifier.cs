@@ -10,7 +10,7 @@ public static class Verifier
     {
         var before = Validate(beforeAssemblyPath);
         var after = Validate(afterAssemblyPath);
-        var message = string.Format("Failed processing {0}\r\n{1}", Path.GetFileName(afterAssemblyPath), after);
+        var message = $"Failed processing {Path.GetFileName(afterAssemblyPath)}\r\n{after}";
         Assert.AreEqual(TrimLineNumbers(before), TrimLineNumbers(after), message);
     }
 
@@ -21,7 +21,7 @@ public static class Verifier
         {
             return string.Empty;
         }
-        var process = Process.Start(new ProcessStartInfo(exePath, "\"" + assemblyPath2 + "\"")
+        var process = Process.Start(new ProcessStartInfo(exePath, $"\"{assemblyPath2}\"")
         {
             RedirectStandardOutput = true,
             UseShellExecute = false,

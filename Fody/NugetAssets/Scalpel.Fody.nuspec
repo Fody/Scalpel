@@ -3,7 +3,7 @@
   <metadata minClientVersion="2.8">
     <id>Scalpel.Fody</id>
     <version>$version$</version>
-    <title>Scalpel.Fody</title>
+    <title>Scalpel.Fody (no longer maintained)</title>
     <authors>Simon Cropp</authors>
     <owners>Simon Cropp</owners>
     <developmentDependency>true</developmentDependency>
@@ -15,7 +15,7 @@
     <language>en-AU</language>
     <tags>Scalpel, NUnit, Moq, ILWeaving, Fody, Cecil</tags>
     <dependencies>
-      <dependency id="Fody" version="2.0.0"/>
+      <dependency id="Fody" version="2.0.5"/>
     </dependencies>
   </metadata>
 </package>
