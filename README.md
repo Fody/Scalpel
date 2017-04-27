@@ -1,3 +1,5 @@
+## This project is no longer maintained. Raise an issue to take ownership
+
 # Test Remover addin for [Fody](https://github.com/Fody/Fody/) 
 
 ![Icon](https://raw.github.com/Fody/Scalpel/master/Icons/package_icon.png)
