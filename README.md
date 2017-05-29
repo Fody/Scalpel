@@ -1,4 +1,9 @@
+[![Chat on Gitter Status](https://img.shields.io/gitter/room/fody/fody.svg?style=flat)](https://gitter.im/Fody)
+[![NuGet Status](http://img.shields.io/nuget/v/Scalpel.Fody.svg?style=flat)](https://www.nuget.org/packages/Scalpel.Fody/)
+
+
 ## This project is no longer maintained. Raise an issue to take ownership
+
 
 # Test Remover addin for [Fody](https://github.com/Fody/Fody/) 
 
@@ -8,15 +13,18 @@ Strips all testing code from an assembly
 
 [Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
 
-## The nuget package  [![NuGet Status](http://img.shields.io/nuget/v/Scalpel.Fody.svg?style=flat)](https://www.nuget.org/packages/Scalpel.Fody/)
+
+## The nuget package
 
 https://nuget.org/packages/Scalpel.Fody/
 
     PM> Install-Package Scalpel.Fody
 
+
 ## What it actually does. 
 
 When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11.5 or higher)
+
 
 ### General
 
@@ -25,30 +33,36 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
  * Removes all types marked with `Scalpel.RemoveAttribute`.
  * Removes all references as defined in  `<Scalpel RemoveReferences='XXX'/>` see below.
 
+
 ### NUnit
 
  * Removes all types marked with any Nunit attribute.
  * Remove the NUnit reference.
+
 
 ### XUnit
 
  * Removes all types containing an XUNit attribute.
  * Removes the Xunit reference.
 
+
 ### MSpec
 
  * Removes all types containing a field from `Machine.Specifications` or `Machine.Specifications.Clr4`
  * Removes the Machine.Specifications.Clr4 and Machine.Specifications references.
  * Removes all types that implement `ISupplementSpecificationResults`, `IAssemblyContext` or `ICleanupAfterEveryContextInAssembly`.
-    
+
+
 ### RhinoMocks
 
  * Removes the refernece to RhinoMocks.
-  
+
+
 ### NSubstitute
 
  * Removes the refernece to NSubstitute.
-  
+
+
 ### FakeItEasy
 
  * Removes the refernece to FakeItEasy.
@@ -64,6 +78,7 @@ When coding any tests then these tests should be a first class citizen to the fu
 
 So Scalpel helps you work around the above problem by striping tests and references from your assembly. It also has the added side effect of allowing you to test internal types without needing to use the [InternalsVisibleToAttribute](http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.internalsvisibletoattribute.aspx).
 
+
 ## But how do I test my deployable artefacts
 
 One problem with this approach is testing your deployable artefacts if the tests are removed from them.
@@ -71,10 +86,12 @@ One problem with this approach is testing your deployable artefacts if the tests
 This is a legitimate problem. The recommended approached it to create another build configuration call `Deployable`. It can have all the same settings as your `Release` configuration with the addition of the `Scalpel` compilation constant.
 This way tests can run from your `Release` configuration and you can deploy from your `Deployable` configuration.
 
+
 ## Configuration Options
 
 All configuration options are access by modifying the `Scalpel` node in FodyWeavers.xml
-    
+
+
 ### RemoveReferences
 
 A list of assembly names to removed at compile time.
@@ -94,11 +111,9 @@ As an element with items delimited by a newline.
     
 Or as a attribute with items delimited by a pipe `|`.
 
-    <Scalpel RemoveReferences='Foo|Bar'/>
-    
+    <Scalpel RemoveReferences='Foo|Bar'/>  
     
 
 ## Icon
 
 <a href="http://thenounproject.com/noun/exacto-knife/#icon-No489" target="_blank">Exacto Knife</a>  from The Noun Project
-
