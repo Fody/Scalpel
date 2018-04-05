@@ -1,25 +1,22 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-    [Test]
+    [Fact]
     public void ApprovalTestsIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "ApprovalTests"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "ApprovalTests");
     }
-    [Test]
+
+    [Fact]
     public void ApprovalUtilitiesIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "ApprovalUtilities"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "ApprovalUtilities");
     }
-    
-    [Test]
+
+    [Fact]
     public void WithApprovalTestsUseReporterRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "WithApprovalTestsUseReporterAttribute"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "WithApprovalTestsUseReporterAttribute");
     }
-
-
 }

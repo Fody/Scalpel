@@ -4,7 +4,6 @@ using Mono.Cecil;
 
 class MSpecRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "Machine.Specifications";

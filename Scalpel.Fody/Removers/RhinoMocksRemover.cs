@@ -3,7 +3,6 @@ using Mono.Cecil;
 
 class RhinoMocksRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "Rhino.Mocks";
@@ -23,5 +22,4 @@ class RhinoMocksRemover : IRemover
     {
         return false;
     }
-
 }

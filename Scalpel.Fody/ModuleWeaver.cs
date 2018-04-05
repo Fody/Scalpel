@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mono.Cecil;
+using Fody;
 
-public partial class ModuleWeaver
+public partial class ModuleWeaver: BaseModuleWeaver
 {
     static List<IRemover> removers;
     List<IRemover> filteredRemovers = new List<IRemover>();
-    public Action<string> LogInfo { get; set; }
-    public Action<string> LogWarning { get; set; }
-    public ModuleDefinition ModuleDefinition { get; set; }
-    public List<string> DefineConstants { get; set; }
 
     static ModuleWeaver()
     {
@@ -21,13 +17,7 @@ public partial class ModuleWeaver
             .ToList();
     }
 
-    public ModuleWeaver()
-    {
-        LogInfo = s => { };
-        LogWarning = s => { };
-    }
-
-    public void Execute()
+    public override void Execute()
     {
         var assemblyReferences = ModuleDefinition.AssemblyReferences;
         var assemblyNameReference = assemblyReferences.FirstOrDefault(x => x.Name == "Scalpel");
@@ -55,6 +45,13 @@ public partial class ModuleWeaver
         CleanTypesBasedOnRemovers();
         CleanModuleAndAssemblyAttributes();
     }
+
+    public override IEnumerable<string> GetAssembliesForScanning()
+    {
+        yield break;
+    }
+
+    public override bool ShouldCleanReference => true;
 
     void CleanModuleAndAssemblyAttributes()
     {

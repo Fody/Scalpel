@@ -1,4 +1,5 @@
 using Machine.Specifications;
+#pragma warning disable 169
 
 public class Something
 {

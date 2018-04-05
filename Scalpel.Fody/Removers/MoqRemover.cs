@@ -3,7 +3,6 @@ using Mono.Cecil;
 
 class MoqRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "Moq";
@@ -24,5 +23,4 @@ class MoqRemover : IRemover
     {
         return false;
     }
-
 }

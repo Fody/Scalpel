@@ -1,79 +1,48 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using Mono.Cecil;
-using NUnit.Framework;
+using Fody;
+using Xunit;
+#pragma warning disable 618
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-    Assembly assembly;
-    string beforeAssemblyPath;
-    string afterAssemblyPath;
+    static TestResult result;
 
-    public WithScalpelConstantTests()
+    static WithScalpelConstantTests()
     {
-        beforeAssemblyPath = Path.GetFullPath(Path.Combine(TestContext.CurrentContext.TestDirectory,@"..\..\..\AssemblyToProcess\bin\Debug\AssemblyToProcess.dll"));
-#if (!DEBUG)
-        beforeAssemblyPath = beforeAssemblyPath.Replace("Debug", "Release");
-#endif
-
-        afterAssemblyPath = beforeAssemblyPath.Replace(".dll", "WithScalpelConstant.dll");
-        File.Copy(beforeAssemblyPath, afterAssemblyPath, true);
-
-        using (var moduleDefinition = ModuleDefinition.ReadModule(beforeAssemblyPath))
+        var weavingTask = new ModuleWeaver
         {
-            var weavingTask = new ModuleWeaver
-            {
-                ModuleDefinition = moduleDefinition,
-                DefineConstants = new List<string> {"Scalpel"}
-            };
-
-            weavingTask.Execute();
-            moduleDefinition.Write(afterAssemblyPath);
-        }
-
-        assembly = Assembly.LoadFile(afterAssemblyPath);
+            DefineConstants = new List<string> { "Scalpel" }
+        };
+        result = weavingTask.ExecuteTestRun("AssemblyToProcess.dll", assemblyName: "WithScalpelConstantTests");
     }
 
-
-    [Test]
+    [Fact]
     public void ScalpelIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "Scalpel"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x =>x.Name == "Scalpel");
     }
 
-    [Test]
+    [Fact]
     public void ClassEndingInMockIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "ClassEndingInMock"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "ClassEndingInMock");
     }
 
-    [Test]
+    [Fact]
     public void ClassEndingInTestsIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "ClassEndingInTests"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "ClassEndingInTests");
     }
 
-    [Test]
+    [Fact]
     public void NestedClassEndingInTests()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "NestedClassEndingInTests"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "NestedClassEndingInTests");
     }
 
-    [Test]
+    [Fact]
     public void MarkedWithAttributeIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "AlsoRemoveMe"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "AlsoRemoveMe");
     }
-    
-#if(DEBUG)
-    [Test]
-    public void PeVerify()
-    {
-        Verifier.Verify(beforeAssemblyPath,afterAssemblyPath);
-    }
-#endif
-
 }

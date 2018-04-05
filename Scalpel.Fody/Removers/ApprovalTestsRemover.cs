@@ -4,7 +4,6 @@ using Mono.Cecil;
 
 class ApprovalTestsRemover : IRemover
 {
-    
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "ApprovalTests";

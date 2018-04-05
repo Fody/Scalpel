@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using Mono.Cecil;
 
-class NUnitRemover : IRemover
+class EndsWithTestsRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
-        yield return "nunit.framework";
+        yield break;
     }
 
     public IEnumerable<string> GetModuleAttributeNames()
@@ -22,11 +21,6 @@ class NUnitRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return typeDefinition.CustomAttributes.Any(IsNUnitAttribute);
-    }
-
-    static bool IsNUnitAttribute(CustomAttribute y)
-    {
-        return y.AttributeType.Scope.Name == "nunit.framework";
+        return typeDefinition.Name.EndsWith("Tests",StringComparison.Ordinal);
     }
 }

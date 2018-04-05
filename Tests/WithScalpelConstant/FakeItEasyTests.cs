@@ -1,16 +1,10 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-
-
-    [Test]
+    [Fact]
     public void FakeItEasyIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "FakeItEasy"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "FakeItEasy");
     }
-
-
 }

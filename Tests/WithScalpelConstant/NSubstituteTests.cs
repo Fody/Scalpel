@@ -1,13 +1,11 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using Xunit;
+using Assert = Xunit.Assert;
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-    [Test]
+    [Fact]
     public void NSubstituteIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x=>x.Name == "NSubstitute"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x =>x.Name == "NSubstitute");
     }
-
 }

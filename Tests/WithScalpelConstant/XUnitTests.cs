@@ -1,39 +1,35 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-
-    [Test]
+    [Fact]
     public void XUnitIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "xunit"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "xunit");
     }
 
-    [Test]
+    [Fact]
     public void XUnitTheoryIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitTheory"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "XUnitTheory");
     }
 
-    [Test]
+    [Fact]
     public void XUnitMemberDataIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitMemberData"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "XUnitMemberData");
     }
 
 
-    [Test]
+    [Fact]
     public void XUnitFactIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitFact"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "XUnitFact");
     }
 
-    [Test]
+    [Fact]
     public void XUnitRunWithIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "XUnitRunWith"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "XUnitRunWith");
     }
-
 }

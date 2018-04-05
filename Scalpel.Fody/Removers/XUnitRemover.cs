@@ -4,7 +4,6 @@ using Mono.Cecil;
 
 class XUnitRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
         yield return "xunit";
@@ -45,5 +44,4 @@ class XUnitRemover : IRemover
     {
         return HasXunitAttribute(x.CustomAttributes);
     }
-
 }

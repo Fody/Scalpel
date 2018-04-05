@@ -3,5 +3,4 @@
 [Remove]
 public class AlsoRemoveMe
 {
-    
 }

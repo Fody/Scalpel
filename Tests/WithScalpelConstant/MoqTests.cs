@@ -1,16 +1,11 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-
-    [Test]
+    [Fact]
     public void MoqIsRemoved()
     {
-        var referencedAssemblies = assembly.GetReferencedAssemblies();
-        Assert.IsFalse(referencedAssemblies.Any(x=>x.Name == "Moq"));
+        var referencedAssemblies = result.Assembly.GetReferencedAssemblies();
+        Assert.DoesNotContain(referencedAssemblies, x =>x.Name == "Moq");
     }
-
-
 }

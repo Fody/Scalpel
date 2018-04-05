@@ -1,11 +1,9 @@
 ﻿using System.Xml.Linq;
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class ConfigReaderTests
 {
-
-    [Test]
+    [Fact]
     public void RemoveReferencesNode()
     {
         var xElement = XElement.Parse(@"
@@ -17,22 +15,22 @@ Bar
 </Scalpel>");
         var moduleWeaver = new ModuleWeaver { Config = xElement };
         moduleWeaver.ReadConfig();
-        Assert.AreEqual("Foo", moduleWeaver.RemoveReferences[0]);
-        Assert.AreEqual("Bar", moduleWeaver.RemoveReferences[1]);
+        Assert.Equal("Foo", moduleWeaver.RemoveReferences[0]);
+        Assert.Equal("Bar", moduleWeaver.RemoveReferences[1]);
     }
 
-    [Test]
+    [Fact]
     public void RemoveReferencesAttribute()
     {
         var xElement = XElement.Parse(@"
 <Scalpel RemoveReferences='Foo|Bar'/>");
         var moduleWeaver = new ModuleWeaver { Config = xElement };
         moduleWeaver.ReadConfig();
-        Assert.AreEqual("Foo", moduleWeaver.RemoveReferences[0]);
-        Assert.AreEqual("Bar", moduleWeaver.RemoveReferences[1]);
+        Assert.Equal("Foo", moduleWeaver.RemoveReferences[0]);
+        Assert.Equal("Bar", moduleWeaver.RemoveReferences[1]);
     }
 
-    [Test]
+    [Fact]
     public void RemoveReferencesCombined()
     {
         var xElement = XElement.Parse(@"
@@ -43,9 +41,7 @@ Bar
 </Scalpel>");
         var moduleWeaver = new ModuleWeaver { Config = xElement };
         moduleWeaver.ReadConfig();
-        Assert.AreEqual("Foo", moduleWeaver.RemoveReferences[0]);
-        Assert.AreEqual("Bar", moduleWeaver.RemoveReferences[1]);
+        Assert.Equal("Foo", moduleWeaver.RemoveReferences[0]);
+        Assert.Equal("Bar", moduleWeaver.RemoveReferences[1]);
     }
-
-
 }

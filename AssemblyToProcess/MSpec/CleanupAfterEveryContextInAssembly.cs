@@ -4,6 +4,5 @@ public class CleanupAfterEveryContextInAssembly : ICleanupAfterEveryContextInAss
 {
     public void AfterContextCleanup()
     {
-
     }
 }

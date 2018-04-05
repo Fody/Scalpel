@@ -2,26 +2,45 @@
 [![NuGet Status](http://img.shields.io/nuget/v/Scalpel.Fody.svg?style=flat)](https://www.nuget.org/packages/Scalpel.Fody/)
 
 
-## This project is no longer maintained. Raise an issue to take ownership
+# Test Remover addin for [Fody](https://github.com/Fody/Fody/)
 
-
-# Test Remover addin for [Fody](https://github.com/Fody/Fody/) 
-
-![Icon](https://raw.github.com/Fody/Scalpel/master/Icons/package_icon.png)
+![Icon](https://raw.github.com/Fody/Scalpel/master/package_icon.png)
 
 Strips all testing code from an assembly
 
 [Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
 
 
-## The nuget package
+## Usage
 
-https://nuget.org/packages/Scalpel.Fody/
-
-    PM> Install-Package Scalpel.Fody
+See also [Fody usage](https://github.com/Fody/Fody#usage).
 
 
-## What it actually does. 
+### NuGet installation
+
+Install the [Scalpel.Fody NuGet package](https://nuget.org/packages/Scalpel.Fody/) and update the [Fody NuGet package](https://nuget.org/packages/Fody/):
+
+```
+PM> Install-Package Scalpel.Fody
+PM> Update-Package Fody
+```
+
+The `Update-Package Fody` is required since NuGet always defaults to the oldest, and most buggy, version of any dependency.
+
+
+### Add to FodyWeavers.xml
+
+Add `<Scalpel/>` to [FodyWeavers.xml](https://github.com/Fody/Fody#add-fodyweaversxml)
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Weavers>
+  <Scalpel/>
+</Weavers>
+```
+
+
+## What it actually does.
 
 When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11.5 or higher)
 
@@ -53,11 +72,6 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
  * Removes all types that implement `ISupplementSpecificationResults`, `IAssemblyContext` or `ICleanupAfterEveryContextInAssembly`.
 
 
-### RhinoMocks
-
- * Removes the refernece to RhinoMocks.
-
-
 ### NSubstitute
 
  * Removes the refernece to NSubstitute.
@@ -66,11 +80,12 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 ### FakeItEasy
 
  * Removes the refernece to FakeItEasy.
-  
+
+
 ### Moq
 
  * Removes the refernece to Moq.
- 
+
 
 ## But WHY?
 
@@ -98,22 +113,26 @@ A list of assembly names to removed at compile time.
 
 Do not include `.exe` or `.dll` in the names.
 
-Can take two forms. 
+Can take two forms.
 
 As an element with items delimited by a newline.
 
-    <Scalpel>
-        <RemoveReferences>
-            Foo
-            Bar
-        </RemoveReferences>
-    </Scalpel>
-    
+```xml
+<Scalpel>
+    <RemoveReferences>
+        Foo
+        Bar
+    </RemoveReferences>
+</Scalpel>
+```
+
 Or as a attribute with items delimited by a pipe `|`.
 
-    <Scalpel RemoveReferences='Foo|Bar'/>  
-    
+```xml
+<Scalpel RemoveReferences='Foo|Bar'/>
+```
+
 
 ## Icon
 
-<a href="http://thenounproject.com/noun/exacto-knife/#icon-No489" target="_blank">Exacto Knife</a>  from The Noun Project
+<a href="http://thenounproject.com/noun/exacto-knife/#icon-No489" target="_blank">Exacto Knife</a> from The Noun Project

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Mono.Cecil;
 
-class FakeItEasyRemover : IRemover
+class WithScalpelAttributeRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
-        yield return "FakeItEasy";
+        yield break;
     }
 
     public IEnumerable<string> GetModuleAttributeNames()
@@ -21,7 +21,11 @@ class FakeItEasyRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return false;
+        return typeDefinition.CustomAttributes.Any(IsRemoveAttribute);
     }
 
+    static bool IsRemoveAttribute(CustomAttribute y)
+    {
+        return y.AttributeType.FullName == "Scalpel.RemoveAttribute";
+    }
 }

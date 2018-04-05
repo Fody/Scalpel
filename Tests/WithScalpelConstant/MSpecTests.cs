@@ -1,33 +1,29 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-
-    [Test]
+    [Fact]
     public void MSpecRefIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "Machine.Specifications"));
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "Machine.Specifications.Clr4"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "Machine.Specifications");
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "Machine.Specifications.Clr4");
     }
 
-    [Test]
+    [Fact]
     public void MSpecTestFixtureIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "MSpecTestFixture"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "MSpecTestFixture");
     }
 
-    [Test]
+    [Fact]
     public void CleanupAfterEveryContextInAssemblyRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "CleanupAfterEveryContextInAssembly"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "CleanupAfterEveryContextInAssembly");
     }
 
-    [Test]
+    [Fact]
     public void AssemblyContextRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "AssemblyContext"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "AssemblyContext");
     }
-
 }

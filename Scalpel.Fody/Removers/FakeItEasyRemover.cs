@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Mono.Cecil;
 
-class EndsWithTestsRemover : IRemover
+class FakeItEasyRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
-        yield break;
+        yield return "FakeItEasy";
     }
 
     public IEnumerable<string> GetModuleAttributeNames()
@@ -22,7 +20,6 @@ class EndsWithTestsRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return typeDefinition.Name.EndsWith("Tests",StringComparison.Ordinal);
+        return false;
     }
-
 }

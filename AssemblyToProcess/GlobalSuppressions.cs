@@ -1,0 +1,3 @@
+﻿[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1006:Theory methods should have parameters", Justification = "<Pending>", Scope = "module")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1008:Test data attribute should only be used on a Theory", Justification = "<Pending>", Scope = "module")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1003:Theory methods must have test data", Justification = "<Pending>", Scope = "module")]

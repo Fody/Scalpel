@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Mono.Cecil;
 
-class EndsWithMockRemover : IRemover
+class NSubstituteRemover : IRemover
 {
-
     public IEnumerable<string> GetReferenceNames()
     {
-        yield break;
+        yield return "NSubstitute";
     }
 
     public IEnumerable<string> GetModuleAttributeNames()
@@ -22,7 +20,6 @@ class EndsWithMockRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return typeDefinition.Name.EndsWith("Mock", StringComparison.Ordinal);
+        return false;
     }
-
 }

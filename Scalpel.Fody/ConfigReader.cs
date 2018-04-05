@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
 
 public partial class ModuleWeaver
 {
-    public XElement Config { get; set; }
     public List<string> RemoveReferences = new List<string>();
 
     public void ReadConfig()
@@ -15,7 +13,6 @@ public partial class ModuleWeaver
         }
 
         ReadIncludes();
-
     }
 
     void ReadIncludes()
@@ -33,12 +30,11 @@ public partial class ModuleWeaver
         if (includeAssembliesElement != null)
         {
             foreach (var item in includeAssembliesElement.Value
-                                                         .Split(new[] {"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries)
-                                                         .NonEmpty())
+                .Split(new[] {"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries)
+                .NonEmpty())
             {
                 RemoveReferences.Add(item);
             }
         }
     }
-
 }

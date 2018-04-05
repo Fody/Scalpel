@@ -2,11 +2,11 @@
 using System.Linq;
 using Mono.Cecil;
 
-class WithScalpelAttributeRemover : IRemover
+class NUnitRemover : IRemover
 {
     public IEnumerable<string> GetReferenceNames()
     {
-        yield break;
+        yield return "nunit.framework";
     }
 
     public IEnumerable<string> GetModuleAttributeNames()
@@ -21,12 +21,11 @@ class WithScalpelAttributeRemover : IRemover
 
     public bool ShouldRemoveType(TypeDefinition typeDefinition)
     {
-        return typeDefinition.CustomAttributes.Any(IsRemoveAttribute);
+        return typeDefinition.CustomAttributes.Any(IsNUnitAttribute);
     }
 
-    static bool IsRemoveAttribute(CustomAttribute y)
+    static bool IsNUnitAttribute(CustomAttribute y)
     {
-        return y.AttributeType.FullName == "Scalpel.RemoveAttribute";
+        return y.AttributeType.Scope.Name == "nunit.framework";
     }
-
 }

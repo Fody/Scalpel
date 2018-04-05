@@ -1,26 +1,22 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public partial class WithScalpelConstantTests
 {
-    [Test]
+    [Fact]
     public void NUnitIsRemoved()
     {
-        Assert.IsFalse(assembly.GetReferencedAssemblies().Any(x => x.Name == "nunit.framework"));
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "nunit.framework");
     }
 
-    [Test]
+    [Fact]
     public void NUnitTestFixtureIsRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "NUnitTestFixture"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "NUnitTestFixture");
     }
 
-    [Test]
+    [Fact]
     public void WithNUnitIgnoreAttributeRemoved()
     {
-        Assert.IsFalse(assembly.GetTypes().Any(x => x.Name == "WithNUnitIgnoreAttribute"));
+        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "WithNUnitIgnoreAttribute");
     }
-
-
 }
