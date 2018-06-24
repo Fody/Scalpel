@@ -48,7 +48,7 @@ public partial class ModuleWeaver: BaseModuleWeaver
 
     public override IEnumerable<string> GetAssembliesForScanning()
     {
-        yield break;
+        return Enumerable.Empty<string>();
     }
 
     public override bool ShouldCleanReference => true;
