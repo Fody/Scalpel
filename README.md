@@ -20,12 +20,12 @@ See also [Fody usage](https://github.com/Fody/Fody#usage).
 
 Install the [Scalpel.Fody NuGet package](https://nuget.org/packages/Scalpel.Fody/) and update the [Fody NuGet package](https://nuget.org/packages/Fody/):
 
-```
+```powershell
+PM> Install-Package Fody
 PM> Install-Package Scalpel.Fody
-PM> Update-Package Fody
 ```
 
-The `Update-Package Fody` is required since NuGet always defaults to the oldest, and most buggy, version of any dependency.
+The `Install-Package Fody` is required since NuGet always defaults to the oldest, and most buggy, version of any dependency.
 
 
 ### Add to FodyWeavers.xml
@@ -84,7 +84,7 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 
 ### Moq
 
- * Removes the refernece to Moq.
+ * Removes the reference to Moq.
 
 
 ## But WHY?
@@ -94,9 +94,9 @@ When coding any tests then these tests should be a first class citizen to the fu
 So Scalpel helps you work around the above problem by striping tests and references from your assembly. It also has the added side effect of allowing you to test internal types without needing to use the [InternalsVisibleToAttribute](http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.internalsvisibletoattribute.aspx).
 
 
-## But how do I test my deployable artefacts
+## But how do I test my deployable artifacts
 
-One problem with this approach is testing your deployable artefacts if the tests are removed from them.
+One problem with this approach is testing your deployable artifacts if the tests are removed from them.
 
 This is a legitimate problem. The recommended approached it to create another build configuration call `Deployable`. It can have all the same settings as your `Release` configuration with the addition of the `Scalpel` compilation constant.
 This way tests can run from your `Release` configuration and you can deploy from your `Deployable` configuration.
