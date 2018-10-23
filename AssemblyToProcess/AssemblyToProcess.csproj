@@ -11,7 +11,7 @@
     <PackageReference Include="NSubstitute" Version="3.1.0" />
     <PackageReference Include="NUnit" Version="3.10.1" />
     <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="ApprovalTests" Version="3.0.14" />
+    <PackageReference Include="ApprovalTests" Version="3.0.18" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scalpel\Scalpel.csproj" />
