@@ -2,18 +2,16 @@
 [![NuGet Status](http://img.shields.io/nuget/v/Scalpel.Fody.svg?style=flat)](https://www.nuget.org/packages/Scalpel.Fody/)
 
 
-# Test Remover addin for [Fody](https://github.com/Fody/Fody/)
+# Test Remover addin for [Fody](https://github.com/Fody/Home/)
 
 ![Icon](https://raw.github.com/Fody/Scalpel/master/package_icon.png)
 
 Strips all testing code from an assembly
 
-[Introduction to Fody](http://github.com/Fody/Fody/wiki/SampleUsage)
-
 
 ## Usage
 
-See also [Fody usage](https://github.com/Fody/Fody#usage).
+See also [Fody usage](https://github.com/Fody/Home/blob/master/pages/usage.md).
 
 
 ### NuGet installation
@@ -30,7 +28,7 @@ The `Install-Package Fody` is required since NuGet always defaults to the oldest
 
 ### Add to FodyWeavers.xml
 
-Add `<Scalpel/>` to [FodyWeavers.xml](https://github.com/Fody/Fody#add-fodyweaversxml)
+Add `<Scalpel/>` to [FodyWeavers.xml](https://github.com/Fody/Home/blob/master/pages/usage.md#add-fodyweaversxml)
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
