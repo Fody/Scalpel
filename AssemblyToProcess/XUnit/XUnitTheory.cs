@@ -2,8 +2,10 @@
 
 public class XUnitTheory
 {
-    [Theory]
-    public void Method()
+    [Theory] 
+    [InlineData("data")]
+    public void Method(string data)
     {
+        Assert.Equal("data",data);
     }
 }

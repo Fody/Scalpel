@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Fody;
 using Xunit;
-#pragma warning disable 618
 
 public partial class WithScalpelConstantTests
 {
