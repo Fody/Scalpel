@@ -2,7 +2,7 @@
 
 public class XUnitTheory
 {
-    [Theory] 
+    [Theory]
     [InlineData("data")]
     public void Method(string data)
     {
