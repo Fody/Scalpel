@@ -71,12 +71,12 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 
 ### NSubstitute
 
- * Removes the refernece to NSubstitute.
+ * Removes the reference to NSubstitute.
 
 
 ### FakeItEasy
 
- * Removes the refernece to FakeItEasy.
+ * Removes the reference to FakeItEasy.
 
 
 ### Moq
@@ -132,4 +132,4 @@ Or as a attribute with items delimited by a pipe `|`.
 
 ## Icon
 
-<a href="http://thenounproject.com/noun/exacto-knife/#icon-No489" target="_blank">Exacto Knife</a> from The Noun Project
+[Exacto Knife](https://thenounproject.com/noun/exacto-knife/#icon-No489) designed by [Edward Boatman](https://thenounproject.com/edward/) from [The Noun Project](https://thenounproject.com).
