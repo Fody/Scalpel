@@ -1,5 +1,5 @@
 [![Chat on Gitter](https://img.shields.io/gitter/room/fody/fody.svg)](https://gitter.im/Fody/Fody)
-[![NuGet Status](http://img.shields.io/nuget/v/Scalpel.Fody.svg)](https://www.nuget.org/packages/Scalpel.Fody/)
+[![NuGet Status](https://img.shields.io/nuget/v/Scalpel.Fody.svg)](https://www.nuget.org/packages/Scalpel.Fody/)
 
 
 # Test Remover addin for [Fody](https://github.com/Fody/Home/)
