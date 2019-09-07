@@ -2,7 +2,7 @@
 using Xunit.Abstractions;
 
 public partial class WithScalpelConstantTests :
-    XunitLoggingBase
+    XunitApprovalBase
 {
     [Fact]
     public void ApprovalTestsIsRemoved()
