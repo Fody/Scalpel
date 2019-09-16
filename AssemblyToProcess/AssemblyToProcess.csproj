@@ -14,8 +14,6 @@
     <PackageReference Include="XunitLogger" Version="3.0.6" />
     <PackageReference Include="Xunit.ApprovalTests" Version="3.0.6" />
     <PackageReference Include="ApprovalTests" Version="4.2.2" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Scalpel\Scalpel.csproj" />
   </ItemGroup>
 </Project>
