@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using Fody;
+using VerifyXunit;
 using Xunit;
 using Xunit.Abstractions;
 
 public class WithNoScalpelConstantTests :
-    XunitApprovalBase
+    VerifyBase
 {
     [Fact]
     public void ScalpelIsRemoved()
