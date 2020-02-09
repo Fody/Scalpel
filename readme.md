@@ -41,7 +41,7 @@ Add `<Scalpel/>` to [FodyWeavers.xml](https://github.com/Fody/Home/blob/master/p
 
 ## What it actually does.
 
-When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11.5 or higher)
+When the compilation constant `Scalpel` is detected.
 
 
 ### General
