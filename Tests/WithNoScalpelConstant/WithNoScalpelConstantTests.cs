@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
 using Fody;
-using VerifyXunit;
 using Xunit;
-using Xunit.Abstractions;
 
-public class WithNoScalpelConstantTests :
-    VerifyBase
+public class WithNoScalpelConstantTests
 {
     [Fact]
     public void ScalpelIsRemoved()
@@ -20,10 +17,5 @@ public class WithNoScalpelConstantTests :
             ignoreCodes: new[] {"0x80131869"});
         var referencedAssemblies = result.Assembly.GetReferencedAssemblies();
         Assert.DoesNotContain(referencedAssemblies, x => x.Name == "Scalpel");
-    }
-
-    public WithNoScalpelConstantTests(ITestOutputHelper output) : 
-        base(output)
-    {
     }
 }

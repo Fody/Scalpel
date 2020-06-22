@@ -1,9 +1,6 @@
-﻿using VerifyXunit;
-using Xunit;
-using Xunit.Abstractions;
+﻿using Xunit;
 
-public partial class WithScalpelConstantTests :
-    VerifyBase
+public partial class WithScalpelConstantTests
 {
     [Fact]
     public void ApprovalTestsIsRemoved()
@@ -21,10 +18,5 @@ public partial class WithScalpelConstantTests :
     public void WithApprovalTestsUseReporterRemoved()
     {
         Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "WithApprovalTestsUseReporterAttribute");
-    }
-
-    public WithScalpelConstantTests(ITestOutputHelper output) :
-        base(output)
-    {
     }
 }

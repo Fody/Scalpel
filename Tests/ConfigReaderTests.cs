@@ -1,10 +1,7 @@
 ﻿using System.Xml.Linq;
-using VerifyXunit;
 using Xunit;
-using Xunit.Abstractions;
 
-public class ConfigReaderTests :
-    VerifyBase
+public class ConfigReaderTests
 {
     [Fact]
     public void RemoveReferencesNode()
@@ -46,9 +43,5 @@ Bar
         moduleWeaver.ReadConfig();
         Assert.Equal("Foo", moduleWeaver.RemoveReferences[0]);
         Assert.Equal("Bar", moduleWeaver.RemoveReferences[1]);
-    }
-
-    public ConfigReaderTests(ITestOutputHelper output) : base(output)
-    {
     }
 }
