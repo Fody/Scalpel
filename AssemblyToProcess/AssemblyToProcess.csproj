@@ -5,7 +5,7 @@
     <DisableFody>true</DisableFody>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FakeItEasy" Version="7.2.0" />
+    <PackageReference Include="FakeItEasy" Version="7.3.0" />
     <PackageReference Include="Machine.Specifications" Version="1.0.0" />
     <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="NSubstitute" Version="4.2.2" />
