@@ -3,15 +3,10 @@ using System.Collections.Generic;
 
 public partial class ModuleWeaver
 {
-    public List<string> RemoveReferences = new List<string>();
+    public List<string> RemoveReferences = new();
 
     public void ReadConfig()
     {
-        if (Config == null)
-        {
-            return;
-        }
-
         ReadIncludes();
     }
 

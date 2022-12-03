@@ -6,7 +6,7 @@ using Fody;
 public partial class ModuleWeaver: BaseModuleWeaver
 {
     static List<IRemover> removers;
-    List<IRemover> filteredRemovers = new List<IRemover>();
+    List<IRemover> filteredRemovers = new();
 
     static ModuleWeaver()
     {
@@ -23,7 +23,7 @@ public partial class ModuleWeaver: BaseModuleWeaver
         var assemblyNameReference = assemblyReferences.FirstOrDefault(x => x.Name == "Scalpel");
         assemblyReferences.Remove(assemblyNameReference);
 
-        if (DefineConstants == null || DefineConstants.All(x => x != "Scalpel"))
+        if (DefineConstants.All(x => x != "Scalpel"))
         {
             var typeDefinitions = ModuleDefinition.GetTypes().ToList();
             foreach (var type in typeDefinitions)

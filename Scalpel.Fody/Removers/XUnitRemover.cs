@@ -35,9 +35,7 @@ class XUnitRemover : IRemover
     {
         var scope = y.AttributeType.Scope.Name;
         return
-            scope == "xunit" ||
-            scope == "xunit.core" ||
-            scope == "xunit2";
+            scope is "xunit" or "xunit.core" or "xunit2";
     }
 
     static bool HasXUnitAttributes(MethodDefinition x)
