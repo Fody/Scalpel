@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Fody;
+﻿using Fody;
 using Xunit;
 
 public class WithNoScalpelConstantTests
@@ -9,7 +8,7 @@ public class WithNoScalpelConstantTests
     {
         var weavingTask = new ModuleWeaver
         {
-            DefineConstants = new List<string>()
+            DefineConstants = new()
         };
         var result = weavingTask.ExecuteTestRun(
             "AssemblyToProcess.dll",
