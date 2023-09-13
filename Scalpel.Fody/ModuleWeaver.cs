@@ -12,23 +12,23 @@ public partial class ModuleWeaver: BaseModuleWeaver
     {
         var removerType = typeof (IRemover);
         removers = removerType.Assembly.GetTypes()
-            .Where(x => x.IsClass && removerType.IsAssignableFrom(x))
-            .Select(x=>(IRemover)Activator.CreateInstance(x))
+            .Where(_ => _.IsClass && removerType.IsAssignableFrom(_))
+            .Select(_ => (IRemover)Activator.CreateInstance(_))
             .ToList();
     }
 
     public override void Execute()
     {
         var assemblyReferences = ModuleDefinition.AssemblyReferences;
-        var assemblyNameReference = assemblyReferences.FirstOrDefault(x => x.Name == "Scalpel");
+        var assemblyNameReference = assemblyReferences.FirstOrDefault(_ => _.Name == "Scalpel");
         assemblyReferences.Remove(assemblyNameReference);
 
-        if (DefineConstants.All(x => x != "Scalpel"))
+        if (DefineConstants.All(_ => _ != "Scalpel"))
         {
             var typeDefinitions = ModuleDefinition.GetTypes().ToList();
             foreach (var type in typeDefinitions)
             {
-                var removeAttribute = type.CustomAttributes.FirstOrDefault(x => x.AttributeType.FullName == "Scalpel.RemoveAttribute");
+                var removeAttribute = type.CustomAttributes.FirstOrDefault(_ => _.AttributeType.FullName == "Scalpel.RemoveAttribute");
                 if (removeAttribute != null)
                 {
                     type.CustomAttributes.Remove(removeAttribute);
@@ -60,14 +60,14 @@ public partial class ModuleWeaver: BaseModuleWeaver
 
             foreach (var attributeName in remover.GetModuleAttributeNames())
             {
-                foreach (var attributeToRemove in ModuleDefinition.CustomAttributes.Where(x => x.AttributeType.FullName == attributeName).ToList())
+                foreach (var attributeToRemove in ModuleDefinition.CustomAttributes.Where(_ => _.AttributeType.FullName == attributeName).ToList())
                 {
                     ModuleDefinition.CustomAttributes.Remove(attributeToRemove);
                 }
             }
             foreach (var attributeName in remover.GetAssemblyAttributeNames())
             {
-                foreach (var attributeToRemove in ModuleDefinition.Assembly.CustomAttributes.Where(x => x.AttributeType.FullName == attributeName).ToList())
+                foreach (var attributeToRemove in ModuleDefinition.Assembly.CustomAttributes.Where(_ => _.AttributeType.FullName == attributeName).ToList())
                 {
                     ModuleDefinition.Assembly.CustomAttributes.Remove(attributeToRemove);
                 }
@@ -80,7 +80,7 @@ public partial class ModuleWeaver: BaseModuleWeaver
         var typeDefinitions = ModuleDefinition.GetTypes().ToList();
         foreach (var type in typeDefinitions)
         {
-            if (filteredRemovers.Any(x => x.ShouldRemoveType(type)))
+            if (filteredRemovers.Any(_ => _.ShouldRemoveType(type)))
             {
                 ModuleDefinition.RemoveType(type);
             }
@@ -118,7 +118,7 @@ public partial class ModuleWeaver: BaseModuleWeaver
         var assemblyNameReferences = ModuleDefinition.AssemblyReferences.ToList();
         foreach (var reference in assemblyNameReferences)
         {
-            if (RemoveReferences.Any(x => x == reference.Name))
+            if (RemoveReferences.Any(_ => _ == reference.Name))
             {
                 ModuleDefinition.AssemblyReferences.Remove(reference);
             }

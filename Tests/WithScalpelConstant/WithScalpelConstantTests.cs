@@ -23,24 +23,24 @@ public partial class WithScalpelConstantTests
     [Fact]
     public void ClassEndingInMockIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "ClassEndingInMock");
+        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "ClassEndingInMock");
     }
 
     [Fact]
     public void ClassEndingInTestsIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "ClassEndingInTests");
+        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "ClassEndingInTests");
     }
 
     [Fact]
     public void NestedClassEndingInTests()
     {
-        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "NestedClassEndingInTests");
+        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "NestedClassEndingInTests");
     }
 
     [Fact]
     public void MarkedWithAttributeIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "AlsoRemoveMe");
+        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "AlsoRemoveMe");
     }
 }

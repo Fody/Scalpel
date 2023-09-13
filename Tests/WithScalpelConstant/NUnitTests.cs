@@ -5,18 +5,18 @@ public partial class WithScalpelConstantTests
     [Fact]
     public void NUnitIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x => x.Name == "nunit.framework");
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "nunit.framework");
     }
 
     [Fact]
     public void NUnitTestFixtureIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "NUnitTestFixture");
+        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "NUnitTestFixture");
     }
 
     [Fact]
     public void WithNUnitIgnoreAttributeRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetTypes(), x => x.Name == "WithNUnitIgnoreAttribute");
+        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "WithNUnitIgnoreAttribute");
     }
 }
