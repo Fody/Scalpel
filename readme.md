@@ -5,6 +5,8 @@
 
 Strips all testing code from an assembly.
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 
 ### This is an add-in for [Fody](https://github.com/Fody/Home/)
 
