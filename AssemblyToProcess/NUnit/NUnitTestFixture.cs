@@ -2,6 +2,4 @@
 
 [TestFixture]
 [Explicit]
-public class NUnitTestFixture
-{
-}
+public class NUnitTestFixture;

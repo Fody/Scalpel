@@ -1,6 +1,4 @@
 ﻿public class ClassWithNested
 {
-    public class NestedClassEndingInTests
-    {
-    }
+    public class NestedClassEndingInTests;
 }

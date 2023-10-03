@@ -1,3 +1,1 @@
-﻿public class ClassEndingInMock
-{
-}
+﻿public class ClassEndingInMock;

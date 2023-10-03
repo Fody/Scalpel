@@ -1,6 +1,4 @@
 ﻿using Scalpel;
 
 [Remove]
-public class AlsoRemoveMe
-{
-}
+public class AlsoRemoveMe;

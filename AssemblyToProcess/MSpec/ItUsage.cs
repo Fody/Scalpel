@@ -10,7 +10,5 @@ public class Something
         public Child Child { get; set; }
     }
 
-    class Child
-    {
-    }
+    class Child;
 }

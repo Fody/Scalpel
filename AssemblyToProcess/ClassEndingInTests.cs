@@ -1,3 +1,1 @@
-﻿public class ClassEndingInTests
-{
-}
+﻿public class ClassEndingInTests;
