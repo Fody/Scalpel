@@ -17,7 +17,7 @@ public partial class WithScalpelConstantTests
     [Fact]
     public void ScalpelIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x =>x.Name == "Scalpel");
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "Scalpel");
     }
 
     [Fact]

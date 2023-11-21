@@ -6,6 +6,6 @@ public partial class WithScalpelConstantTests
     public void MoqIsRemoved()
     {
         var referencedAssemblies = result.Assembly.GetReferencedAssemblies();
-        Assert.DoesNotContain(referencedAssemblies, x =>x.Name == "Moq");
+        Assert.DoesNotContain(referencedAssemblies, _ => _.Name == "Moq");
     }
 }

@@ -6,6 +6,6 @@ public partial class WithScalpelConstantTests
     [Fact]
     public void NSubstituteIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), x =>x.Name == "NSubstitute");
+        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "NSubstitute");
     }
 }
