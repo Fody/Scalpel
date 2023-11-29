@@ -1,10 +1,6 @@
-﻿using Xunit;
-
-public partial class WithScalpelConstantTests
+﻿public partial class WithScalpelConstantTests
 {
     [Fact]
-    public void FakeItEasyIsRemoved()
-    {
+    public void FakeItEasyIsRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "FakeItEasy");
-    }
 }

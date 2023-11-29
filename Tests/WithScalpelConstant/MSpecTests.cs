@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-public partial class WithScalpelConstantTests
+﻿public partial class WithScalpelConstantTests
 {
     [Fact]
     public void MSpecRefIsRemoved()
@@ -10,20 +8,14 @@ public partial class WithScalpelConstantTests
     }
 
     [Fact]
-    public void MSpecTestFixtureIsRemoved()
-    {
+    public void MSpecTestFixtureIsRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "MSpecTestFixture");
-    }
 
     [Fact]
-    public void CleanupAfterEveryContextInAssemblyRemoved()
-    {
+    public void CleanupAfterEveryContextInAssemblyRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "CleanupAfterEveryContextInAssembly");
-    }
 
     [Fact]
-    public void AssemblyContextRemoved()
-    {
+    public void AssemblyContextRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "AssemblyContext");
-    }
 }

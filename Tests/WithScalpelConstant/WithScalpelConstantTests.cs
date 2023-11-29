@@ -1,5 +1,4 @@
 ﻿using Fody;
-using Xunit;
 
 public partial class WithScalpelConstantTests
 {
@@ -15,32 +14,22 @@ public partial class WithScalpelConstantTests
     }
 
     [Fact]
-    public void ScalpelIsRemoved()
-    {
+    public void ScalpelIsRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "Scalpel");
-    }
 
     [Fact]
-    public void ClassEndingInMockIsRemoved()
-    {
+    public void ClassEndingInMockIsRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "ClassEndingInMock");
-    }
 
     [Fact]
-    public void ClassEndingInTestsIsRemoved()
-    {
+    public void ClassEndingInTestsIsRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "ClassEndingInTests");
-    }
 
     [Fact]
-    public void NestedClassEndingInTests()
-    {
+    public void NestedClassEndingInTests() =>
         Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "NestedClassEndingInTests");
-    }
 
     [Fact]
-    public void MarkedWithAttributeIsRemoved()
-    {
+    public void MarkedWithAttributeIsRemoved() =>
         Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "AlsoRemoveMe");
-    }
 }

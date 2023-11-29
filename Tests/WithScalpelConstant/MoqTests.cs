@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-public partial class WithScalpelConstantTests
+﻿public partial class WithScalpelConstantTests
 {
     [Fact]
     public void MoqIsRemoved()
