@@ -9,7 +9,7 @@ public partial class WithScalpelConstantTests
     {
         var weavingTask = new ModuleWeaver
         {
-            DefineConstants = new() { "Scalpel" }
+            DefineConstants = ["Scalpel"]
         };
         result = weavingTask.ExecuteTestRun("AssemblyToProcess.dll", assemblyName: "WithScalpelConstantTests");
     }
