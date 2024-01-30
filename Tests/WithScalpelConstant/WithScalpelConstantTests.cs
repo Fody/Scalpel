@@ -6,11 +6,11 @@ public partial class WithScalpelConstantTests
 
     static WithScalpelConstantTests()
     {
-        var weavingTask = new ModuleWeaver
+        var weaver = new ModuleWeaver
         {
             DefineConstants = ["Scalpel"]
         };
-        result = weavingTask.ExecuteTestRun("AssemblyToProcess.dll", assemblyName: "WithScalpelConstantTests");
+        result = weaver.ExecuteTestRun("AssemblyToProcess.dll", assemblyName: "WithScalpelConstantTests");
     }
 
     [Fact]
