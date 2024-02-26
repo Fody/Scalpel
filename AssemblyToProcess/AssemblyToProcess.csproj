@@ -9,7 +9,7 @@
     <PackageReference Include="Machine.Specifications" Version="1.1.1" />
     <PackageReference Include="Moq" Version="4.20.70" />
     <PackageReference Include="NSubstitute" Version="5.1.0" />
-    <PackageReference Include="NUnit" Version="4.0.1" />
+    <PackageReference Include="NUnit" Version="4.1.0" />
     <PackageReference Include="Xunit" Version="2.6.6" />
     <PackageReference Include="Verify.Xunit" Version="23.0.1" />
     <ProjectReference Include="..\Scalpel\Scalpel.csproj" />
