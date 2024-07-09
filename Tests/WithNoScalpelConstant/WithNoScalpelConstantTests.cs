@@ -12,7 +12,7 @@ public class WithNoScalpelConstantTests
         var result = weaver.ExecuteTestRun(
             "AssemblyToProcess.dll",
             assemblyName: "WithNoScalpelConstantTests",
-            ignoreCodes: new[] {"0x80131869"});
+            ignoreCodes: ["0x80131869"]);
         var referencedAssemblies = result.Assembly.GetReferencedAssemblies();
         Assert.DoesNotContain(referencedAssemblies, _ => _.Name == "Scalpel");
     }

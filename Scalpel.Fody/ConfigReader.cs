@@ -5,10 +5,7 @@ public partial class ModuleWeaver
 {
     public List<string> RemoveReferences = new();
 
-    public void ReadConfig()
-    {
-        ReadIncludes();
-    }
+    public void ReadConfig() => ReadIncludes();
 
     void ReadIncludes()
     {
@@ -25,7 +22,7 @@ public partial class ModuleWeaver
         if (includeAssembliesElement != null)
         {
             foreach (var item in includeAssembliesElement.Value
-                .Split(new[] {"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries)
+                .Split(["\r\n", "\n"], StringSplitOptions.RemoveEmptyEntries)
                 .NonEmpty())
             {
                 RemoveReferences.Add(item);

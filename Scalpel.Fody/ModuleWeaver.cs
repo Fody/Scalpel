@@ -46,10 +46,7 @@ public partial class ModuleWeaver: BaseModuleWeaver
         CleanModuleAndAssemblyAttributes();
     }
 
-    public override IEnumerable<string> GetAssembliesForScanning()
-    {
-        return Enumerable.Empty<string>();
-    }
+    public override IEnumerable<string> GetAssembliesForScanning() => [];
 
     public override bool ShouldCleanReference => true;
 

@@ -5,13 +5,13 @@
     <DisableFody>true</DisableFody>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FakeItEasy" Version="8.2.0" />
-    <PackageReference Include="Machine.Specifications" Version="1.1.1" />
+    <PackageReference Include="FakeItEasy" Version="8.3.0" />
+    <PackageReference Include="Machine.Specifications" Version="1.1.2" />
     <PackageReference Include="Moq" Version="4.20.70" />
     <PackageReference Include="NSubstitute" Version="5.1.0" />
     <PackageReference Include="NUnit" Version="4.1.0" />
-    <PackageReference Include="xunit" Version="2.8.0" />
-    <PackageReference Include="Verify.Xunit" Version="24.1.0" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="Verify.Xunit" Version="25.3.0" />
     <ProjectReference Include="..\Scalpel\Scalpel.csproj" />
   </ItemGroup>
 </Project>
