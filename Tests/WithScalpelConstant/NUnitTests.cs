@@ -1,14 +1,14 @@
 ﻿public partial class WithScalpelConstantTests
 {
-    [Fact]
-    public void NUnitIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "nunit.framework");
+    [Test]
+    public async Task NUnitIsRemoved() =>
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "nunit.framework")).IsFalse();
 
-    [Fact]
-    public void NUnitTestFixtureIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "NUnitTestFixture");
+    [Test]
+    public async Task NUnitTestFixtureIsRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "NUnitTestFixture")).IsFalse();
 
-    [Fact]
-    public void WithNUnitIgnoreAttributeRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "WithNUnitIgnoreAttribute");
+    [Test]
+    public async Task WithNUnitIgnoreAttributeRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "WithNUnitIgnoreAttribute")).IsFalse();
 }

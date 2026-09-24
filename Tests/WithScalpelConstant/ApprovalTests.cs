@@ -1,14 +1,14 @@
 ﻿public partial class WithScalpelConstantTests
 {
-    [Fact]
-    public void ApprovalTestsIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "ApprovalTests");
+    [Test]
+    public async Task ApprovalTestsIsRemoved() =>
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "ApprovalTests")).IsFalse();
 
-    [Fact]
-    public void ApprovalUtilitiesIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "ApprovalUtilities");
+    [Test]
+    public async Task ApprovalUtilitiesIsRemoved() =>
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "ApprovalUtilities")).IsFalse();
 
-    [Fact]
-    public void WithApprovalTestsUseReporterRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "WithApprovalTestsUseReporterAttribute");
+    [Test]
+    public async Task WithApprovalTestsUseReporterRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "WithApprovalTestsUseReporterAttribute")).IsFalse();
 }

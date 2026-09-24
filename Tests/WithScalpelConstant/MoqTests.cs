@@ -1,9 +1,9 @@
 ﻿public partial class WithScalpelConstantTests
 {
-    [Fact]
-    public void MoqIsRemoved()
+    [Test]
+    public async Task MoqIsRemoved()
     {
         var referencedAssemblies = result.Assembly.GetReferencedAssemblies();
-        Assert.DoesNotContain(referencedAssemblies, _ => _.Name == "Moq");
+        await Assert.That(referencedAssemblies.Any(_ => _.Name == "Moq")).IsFalse();
     }
 }

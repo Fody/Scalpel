@@ -1,22 +1,22 @@
 ﻿public partial class WithScalpelConstantTests
 {
-    [Fact]
-    public void XUnitIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "xunit");
+    [Test]
+    public async Task XUnitIsRemoved() =>
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "xunit")).IsFalse();
 
-    [Fact]
-    public void XUnitTheoryIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "XUnitTheory");
+    [Test]
+    public async Task XUnitTheoryIsRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "XUnitTheory")).IsFalse();
 
-    [Fact]
-    public void XUnitMemberDataIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "XUnitMemberData");
+    [Test]
+    public async Task XUnitMemberDataIsRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "XUnitMemberData")).IsFalse();
 
-    [Fact]
-    public void XUnitFactIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "XUnitFact");
+    [Test]
+    public async Task XUnitFactIsRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "XUnitFact")).IsFalse();
 
-    [Fact]
-    public void XUnitRunWithIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "XUnitRunWith");
+    [Test]
+    public async Task XUnitRunWithIsRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "XUnitRunWith")).IsFalse();
 }

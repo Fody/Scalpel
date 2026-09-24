@@ -2,8 +2,8 @@
 
 public class ConfigReaderTests
 {
-    [Fact]
-    public void RemoveReferencesNode()
+    [Test]
+    public async Task RemoveReferencesNode()
     {
         var xElement = XElement.Parse(
             """
@@ -17,12 +17,12 @@ public class ConfigReaderTests
             """);
         var weaver = new ModuleWeaver { Config = xElement };
         weaver.ReadConfig();
-        Assert.Equal("Foo", weaver.RemoveReferences[0]);
-        Assert.Equal("Bar", weaver.RemoveReferences[1]);
+        await Assert.That(weaver.RemoveReferences[0]).IsEqualTo("Foo");
+        await Assert.That(weaver.RemoveReferences[1]).IsEqualTo("Bar");
     }
 
-    [Fact]
-    public void RemoveReferencesAttribute()
+    [Test]
+    public async Task RemoveReferencesAttribute()
     {
         var xElement = XElement.Parse(
             """
@@ -31,12 +31,12 @@ public class ConfigReaderTests
             """);
         var weaver = new ModuleWeaver { Config = xElement };
         weaver.ReadConfig();
-        Assert.Equal("Foo", weaver.RemoveReferences[0]);
-        Assert.Equal("Bar", weaver.RemoveReferences[1]);
+        await Assert.That(weaver.RemoveReferences[0]).IsEqualTo("Foo");
+        await Assert.That(weaver.RemoveReferences[1]).IsEqualTo("Bar");
     }
 
-    [Fact]
-    public void RemoveReferencesCombined()
+    [Test]
+    public async Task RemoveReferencesCombined()
     {
         var xElement = XElement.Parse(
             """
@@ -49,7 +49,7 @@ public class ConfigReaderTests
             """);
         var weaver = new ModuleWeaver { Config = xElement };
         weaver.ReadConfig();
-        Assert.Equal("Foo", weaver.RemoveReferences[0]);
-        Assert.Equal("Bar", weaver.RemoveReferences[1]);
+        await Assert.That(weaver.RemoveReferences[0]).IsEqualTo("Foo");
+        await Assert.That(weaver.RemoveReferences[1]).IsEqualTo("Bar");
     }
 }

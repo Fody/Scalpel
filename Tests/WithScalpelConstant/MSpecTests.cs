@@ -1,21 +1,21 @@
 ﻿public partial class WithScalpelConstantTests
 {
-    [Fact]
-    public void MSpecRefIsRemoved()
+    [Test]
+    public async Task MSpecRefIsRemoved()
     {
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "Machine.Specifications");
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "Machine.Specifications.Clr4");
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "Machine.Specifications")).IsFalse();
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "Machine.Specifications.Clr4")).IsFalse();
     }
 
-    [Fact]
-    public void MSpecTestFixtureIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "MSpecTestFixture");
+    [Test]
+    public async Task MSpecTestFixtureIsRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "MSpecTestFixture")).IsFalse();
 
-    [Fact]
-    public void CleanupAfterEveryContextInAssemblyRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "CleanupAfterEveryContextInAssembly");
+    [Test]
+    public async Task CleanupAfterEveryContextInAssemblyRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "CleanupAfterEveryContextInAssembly")).IsFalse();
 
-    [Fact]
-    public void AssemblyContextRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetTypes(), _ => _.Name == "AssemblyContext");
+    [Test]
+    public async Task AssemblyContextRemoved() =>
+        await Assert.That(result.Assembly.GetTypes().Any(_ => _.Name == "AssemblyContext")).IsFalse();
 }

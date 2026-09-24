@@ -2,8 +2,8 @@
 
 public class WithNoScalpelConstantTests
 {
-    [Fact]
-    public void ScalpelIsRemoved()
+    [Test]
+    public async Task ScalpelIsRemoved()
     {
         var weaver = new ModuleWeaver
         {
@@ -14,6 +14,6 @@ public class WithNoScalpelConstantTests
             assemblyName: "WithNoScalpelConstantTests",
             ignoreCodes: ["0x80131869"]);
         var referencedAssemblies = result.Assembly.GetReferencedAssemblies();
-        Assert.DoesNotContain(referencedAssemblies, _ => _.Name == "Scalpel");
+        await Assert.That(referencedAssemblies.Any(_ => _.Name == "Scalpel")).IsFalse();
     }
 }

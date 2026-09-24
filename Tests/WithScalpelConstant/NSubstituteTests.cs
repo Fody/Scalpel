@@ -1,8 +1,7 @@
-﻿using Assert = Xunit.Assert;
 
 public partial class WithScalpelConstantTests
 {
-    [Fact]
-    public void NSubstituteIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "NSubstitute");
+    [Test]
+    public async Task NSubstituteIsRemoved() =>
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "NSubstitute")).IsFalse();
 }

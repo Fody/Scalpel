@@ -65,6 +65,12 @@ When the compilation constant `Scalpel` is detected.
  * Removes the Xunit reference.
 
 
+### TUnit
+
+ * Removes all types containing a TUnit attribute (for example `[Test]`).
+ * Removes the `TUnit.Core`, `TUnit.Assertions` and `TUnit.Engine` references.
+
+
 ### MSpec
 
  * Removes all types containing a field from `Machine.Specifications` or `Machine.Specifications.Clr4`

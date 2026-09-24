@@ -1,6 +1,6 @@
 ﻿public partial class WithScalpelConstantTests
 {
-    [Fact]
-    public void FakeItEasyIsRemoved() =>
-        Assert.DoesNotContain(result.Assembly.GetReferencedAssemblies(), _ => _.Name == "FakeItEasy");
+    [Test]
+    public async Task FakeItEasyIsRemoved() =>
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "FakeItEasy")).IsFalse();
 }
