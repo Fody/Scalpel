@@ -9,6 +9,9 @@ class XUnitRemover : IRemover
         yield return "xunit";
         yield return "xunit.core";
         yield return "xunit2";
+        yield return "xunit.assert";
+        yield return "xunit.v3.core";
+        yield return "xunit.v3.assert";
     }
 
     public IEnumerable<string> GetModuleAttributeNames()
@@ -35,7 +38,7 @@ class XUnitRemover : IRemover
     {
         var scope = y.AttributeType.Scope.Name;
         return
-            scope is "xunit" or "xunit.core" or "xunit2";
+            scope is "xunit" or "xunit.core" or "xunit2" or "xunit.v3.core";
     }
 
     static bool HasXUnitAttributes(MethodDefinition x)

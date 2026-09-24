@@ -12,7 +12,8 @@
     <PackageReference Include="Moq" />
     <PackageReference Include="NSubstitute" />
     <PackageReference Include="NUnit" />
-    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.v3.extensibility.core" />
+    <PackageReference Include="xunit.v3.assert" />
     <PackageReference Include="Verify.XunitV3" />
     <PackageReference Include="TUnit.Core" />
     <ProjectReference Include="..\Scalpel\Scalpel.csproj" />

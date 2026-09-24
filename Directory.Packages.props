@@ -13,7 +13,8 @@
     <PackageVersion Include="NSubstitute" Version="6.2.0" />
     <!-- the sample assembly intentionally references these test frameworks so Scalpel can be tested against them -->
     <PackageVersion Include="NUnit" Version="4.6.1" />
-    <PackageVersion Include="xunit.v3" Version="4.0.1" />
+    <PackageVersion Include="xunit.v3.extensibility.core" Version="4.0.1" />
+    <PackageVersion Include="xunit.v3.assert" Version="4.0.1" />
     <PackageVersion Include="Verify.XunitV3" Version="33.1.4" />
     <!-- the TUnit metapackage is not used since it brings in a Mono.Cecil that conflicts with the Cecil used by Fody -->
     <PackageVersion Include="TUnit.Core" Version="1.69.0" />

@@ -2,7 +2,7 @@
 {
     [Test]
     public async Task XUnitIsRemoved() =>
-        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name == "xunit")).IsFalse();
+        await Assert.That(result.Assembly.GetReferencedAssemblies().Any(_ => _.Name.StartsWith("xunit"))).IsFalse();
 
     [Test]
     public async Task XUnitTheoryIsRemoved() =>
